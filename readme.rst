@@ -6,9 +6,9 @@ I have written those to be easy to use, but they are not necessarily covering al
 library or device has to offer. 
 
 Currently included hardware:
-   * picam
-   * ophirUSBI
-   * uc480
+   * Princeton Instruments PICam library
+   * Ophir's USBI interface for power meters
+   * Thorlabs' uc480 CCD and CMOS cameras
 
 As I am browsing through my old code, I will constantly be adding more modules / hardware to this repository.
 
