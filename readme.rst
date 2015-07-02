@@ -6,9 +6,9 @@ I have written those to be easy to use, but they are not necessarily covering al
 library or device has to offer. 
 
 Currently included hardware:
-- picam
-- ophirUSBI
-- uc480
+   * picam
+   * ophirUSBI
+   * uc480
 
 As I am browsing through my old code, I will constantly be adding more modules / hardware to this repository.
 
