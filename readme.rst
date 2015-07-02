@@ -18,6 +18,13 @@ How to use these modules
 In order to use one of these modules in your own scripts, simply copy the respective folder 
 somewhere into your project tree where python is looking for modules and use standard module import. 
 Examples are given for each module.
+
+Documentation
+=============
+
+A more extensive documentation of the python modules can be found on my GitHub Pages: 
+
+http://ddietze.github.io/Py-Hardware-Support
    
 Licence
 =======
