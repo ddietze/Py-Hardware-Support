@@ -1,0 +1,5 @@
+Supporting Files for Princeton Instruments' PICam Library - :py:mod:`picam_types`
+=================================================================================
+
+.. automodule:: picam.picam_types
+    :members:

@@ -1,0 +1,445 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Ophir USBI ActiveX Support - ophirUSBI &mdash; Python Hardware Support 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+    <link rel="top" title="Python Hardware Support 1.0 documentation" href="index.html" />
+    <link rel="next" title="Thorlabs’ uc480 CCD/CMOS Cameras - uc480" href="uc480.html" />
+    <link rel="prev" title="Supporting Files for Princeton Instruments’ PICam Library - picam_types" href="picam_supporting.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="uc480.html" title="Thorlabs’ uc480 CCD/CMOS Cameras - uc480"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="picam_supporting.html" title="Supporting Files for Princeton Instruments’ PICam Library - picam_types"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Hardware Support 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="picam_supporting.html"
+                        title="previous chapter">Supporting Files for Princeton Instruments&#8217; PICam Library - <code class="docutils literal"><span class="pre">picam_types</span></code></a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="uc480.html"
+                        title="next chapter">Thorlabs&#8217; uc480 CCD/CMOS Cameras - <code class="docutils literal"><span class="pre">uc480</span></code></a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-ophirUSBI">
+<span id="ophir-usbi-activex-support-ophirusbi"></span><h1>Ophir USBI ActiveX Support - <a class="reference internal" href="#module-ophirUSBI" title="ophirUSBI"><code class="xref py py-mod docutils literal"><span class="pre">ophirUSBI</span></code></a><a class="headerlink" href="#module-ophirUSBI" title="Permalink to this headline">¶</a></h1>
+<p>Python module for accessing Ophir&#8217;s USB power meters through the OphirUSBI ActiveX interface.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Requires <em>pywin32</em> and Ophir&#8217;s USBI ActiveX component (status 2010). Ophir has since released new versions of the ActiveX components and also a newer COM object, neither of which is supported currently. The ActiveX control is included by early-binding. It is necessary to run the <em>Com - Makepy Utility</em> found in the <em>PythonWinIDE - Tools - Menu</em> in order to make it accessible to python.</p>
+</div>
+<p>Short example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">ophirUSBI</span>
+
+<span class="c"># create class instance and connect to ActiveX component</span>
+<span class="n">dev</span> <span class="o">=</span> <span class="n">ophirUSBI</span><span class="o">.</span><span class="n">OphirUSBI</span><span class="p">()</span>     
+
+<span class="c"># connect to first OphirUSBI device</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>                  
+
+<span class="c"># set measurement mode</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">set_default_mode</span><span class="p">()</span>          
+
+<span class="c"># record 10 data points</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">read_data</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>        
+
+<span class="n">dev</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="ophirUSBI.OphirUSBI">
+<em class="property">class </em><code class="descclassname">ophirUSBI.</code><code class="descname">OphirUSBI</code><a class="headerlink" href="#ophirUSBI.OphirUSBI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Python interface to the Ophir USBI device.</p>
+<dl class="attribute">
+<dt id="ophirUSBI.OphirUSBI.MM_Modes">
+<code class="descname">MM_Modes</code><em class="property"> = None</em><a class="headerlink" href="#ophirUSBI.OphirUSBI.MM_Modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of available measurement modes as returned by <a class="reference internal" href="#ophirUSBI.OphirUSBI.connect" title="ophirUSBI.OphirUSBI.connect"><code class="xref py py-func docutils literal"><span class="pre">connect()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ophirUSBI.OphirUSBI.MM_PulseLengths">
+<code class="descname">MM_PulseLengths</code><em class="property"> = None</em><a class="headerlink" href="#ophirUSBI.OphirUSBI.MM_PulseLengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of available pulse lengths as returned by <a class="reference internal" href="#ophirUSBI.OphirUSBI.connect" title="ophirUSBI.OphirUSBI.connect"><code class="xref py py-func docutils literal"><span class="pre">connect()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ophirUSBI.OphirUSBI.MM_Ranges">
+<code class="descname">MM_Ranges</code><em class="property"> = None</em><a class="headerlink" href="#ophirUSBI.OphirUSBI.MM_Ranges" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of available measurement ranges as returned by <a class="reference internal" href="#ophirUSBI.OphirUSBI.connect" title="ophirUSBI.OphirUSBI.connect"><code class="xref py py-func docutils literal"><span class="pre">connect()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ophirUSBI.OphirUSBI.MM_Wavelengths">
+<code class="descname">MM_Wavelengths</code><em class="property"> = None</em><a class="headerlink" href="#ophirUSBI.OphirUSBI.MM_Wavelengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of available wavelength settings as returned by <a class="reference internal" href="#ophirUSBI.OphirUSBI.connect" title="ophirUSBI.OphirUSBI.connect"><code class="xref py py-func docutils literal"><span class="pre">connect()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ophirUSBI.OphirUSBI.USBI_channel">
+<code class="descname">USBI_channel</code><em class="property"> = None</em><a class="headerlink" href="#ophirUSBI.OphirUSBI.USBI_channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Channel number for readout.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.ask">
+<code class="descname">ask</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.ask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function for direct legacy access to the Ophir power meter used for querying some value.</p>
+<p>For a list of commands see the OphirUSBI ActiveX manual.</p>
+<p>If reading of query result fails, an error message is printed to stdout.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmd</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Query command.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Query result (<em>str</em>).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.connect">
+<code class="descname">connect</code><span class="sig-paren">(</span><em>devID=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Establish a connection to an Ophir USB power meter.</p>
+<p>The function acquires a list of connected Ophir devices and connects to the one found at position <em>devID</em>. After connecting, the current settings are loaded and a list of permitted values for the measurement parameters is generated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>devID</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Index of device to connect to. In order to connect to the first one, set this to 0 (default).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Raises IndexError:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">If devID does not point to a valid Ophir device.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.disconnect">
+<code class="descname">disconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.disconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close connection to current device.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.get_data">
+<code class="descname">get_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.get_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the result from an asynchronous data acquisition <a class="reference internal" href="#ophirUSBI.OphirUSBI.start" title="ophirUSBI.OphirUSBI.start"><code class="xref py py-func docutils literal"><span class="pre">start()</span></code></a>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Be careful with this function as it blocks the application if no data can be read from the sensor.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li>Time of acquisition (<em>sequence</em>).</li>
+<li>Actual power meter reading (<em>sequence</em>).</li>
+<li>Status of each sample (<em>sequence</em>).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.get_measurement_mode">
+<code class="descname">get_measurement_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.get_measurement_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current measurement mode index.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.get_pulse_length">
+<code class="descname">get_pulse_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.get_pulse_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns current pulse length setting index.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.get_range">
+<code class="descname">get_range</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.get_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns current power/energy range index.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.get_wavelength">
+<code class="descname">get_wavelength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.get_wavelength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns index of current wavelength setting.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.read_data">
+<code class="descname">read_data</code><span class="sig-paren">(</span><em>num_samples</em><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.read_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read data synchronously from power meter using the selected readout mode.</p>
+<p>This function blocks execution of the program until the desired number of samples has been read.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>num_samples</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of data points to be read from the sensor.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li>Time of acquisition (<em>sequence</em>).</li>
+<li>Actual power meter reading (<em>sequence</em>).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset device.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">The device must not be in streaming mode!</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.scanUSBI">
+<code class="descname">scanUSBI</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.scanUSBI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scan for supported / connected power meters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of attached USBI devices.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.set_default_mode">
+<code class="descname">set_default_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.set_default_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set power meter to default readout mode.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.set_immediate_mode">
+<code class="descname">set_immediate_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.set_immediate_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set power meter to immediate readout.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.set_measurement_mode">
+<code class="descname">set_measurement_mode</code><span class="sig-paren">(</span><em>newmode</em><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.set_measurement_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set new measurement mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newmode</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Index of new measurement mode (0 to # of modes).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.set_pulse_length">
+<code class="descname">set_pulse_length</code><span class="sig-paren">(</span><em>newlength</em><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.set_pulse_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set new pulse length setting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newlength</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Index of new pulse length setting (0 to # of pulse lengths).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.set_range">
+<code class="descname">set_range</code><span class="sig-paren">(</span><em>newrange</em><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.set_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set new power/energy range setting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newrange</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Index of new range setting (0 to # of ranges).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.set_turbo_mode">
+<code class="descname">set_turbo_mode</code><span class="sig-paren">(</span><em>freq</em><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.set_turbo_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set power meter to turbo mode. Only available if turbo mode is supported by hardware.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>freq</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Frequency for acquisition in Hz.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.set_wavelength">
+<code class="descname">set_wavelength</code><span class="sig-paren">(</span><em>newwl</em><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.set_wavelength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set new wavelength setting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newwl</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Index of new wavelength setting (0 to # of wavelengths).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts an asynchronous acquisition of data from power meter using the selected measurement mode and returns immediately.</p>
+<p>Use <a class="reference internal" href="#ophirUSBI.OphirUSBI.stop" title="ophirUSBI.OphirUSBI.stop"><code class="xref py py-func docutils literal"><span class="pre">stop()</span></code></a> to stop acquisition and <a class="reference internal" href="#ophirUSBI.OphirUSBI.get_data" title="ophirUSBI.OphirUSBI.get_data"><code class="xref py py-func docutils literal"><span class="pre">get_data()</span></code></a> to read the data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops an asynchronous acquisition of data from power meter that has been started with <a class="reference internal" href="#ophirUSBI.OphirUSBI.start" title="ophirUSBI.OphirUSBI.start"><code class="xref py py-func docutils literal"><span class="pre">start()</span></code></a>.</p>
+<p>Use <a class="reference internal" href="#ophirUSBI.OphirUSBI.get_data" title="ophirUSBI.OphirUSBI.get_data"><code class="xref py py-func docutils literal"><span class="pre">get_data()</span></code></a> to read the data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ophirUSBI.OphirUSBI.timeout">
+<code class="descname">timeout</code><em class="property"> = None</em><a class="headerlink" href="#ophirUSBI.OphirUSBI.timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timeout for data acquisition using <a class="reference internal" href="#ophirUSBI.OphirUSBI.read_data" title="ophirUSBI.OphirUSBI.read_data"><code class="xref py py-func docutils literal"><span class="pre">read_data()</span></code></a> in seconds.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ophirUSBI.OphirUSBI.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="headerlink" href="#ophirUSBI.OphirUSBI.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function for direct legacy access to the Ophir power meter.</p>
+<p>For a list of commands see the OphirUSBI ActiveX manual.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmd</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Query command.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="uc480.html" title="Thorlabs’ uc480 CCD/CMOS Cameras - uc480"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="picam_supporting.html" title="Supporting Files for Princeton Instruments’ PICam Library - picam_types"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Hardware Support 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010, 2015, Daniel Dietze.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

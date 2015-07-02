@@ -1,0 +1,90 @@
+Support for Princeton Instruments' PICam Library - :py:mod:`picam`
+==================================================================
+ 
+Python wrapper around Princeton Instruments' PICam camera SDK using :py:mod:`ctypes`. This version has been partly inspired by Joe Lowney's GitHub project (https://github.com/joelowney/PythonForPicam).
+
+In order to run this module, you have to have the PICam library, provided by Princeton Instruments at ftp://ftp.princetoninstruments.com/Public/Software/Official/PICam, installed on your computer. The module looks for *Picam.dll* either at a path provided by the user or at the path provided in the environment variable *PicamRoot*, which is created by the PICam installer.
+
+.. note:: This version of :py:mod:`picam` was developed under Python 2.7 and does not yet run under Python 3 mainly due to the changed print syntax.
+
+Example code that sets a Pixis 100 to the fastest possible readout for use as spectrometer CCD::
+
+    import numpy as np
+    import pylab as pl
+    import picam 
+    
+    cam = picam.picam()
+    
+    cam.loadLibrary()
+    cam.getAvailableCameras()
+    cam.connect()
+    
+    # shortest expoure
+    cam.setParameter("ExposureTime", 0)
+    
+    # set readout mode
+    cam.setParameter("ReadoutControlMode", PicamReadoutControlMode["FullFrame"])
+        
+    # custom chip settings
+    cam.setROI(0, 1339, 1, 0, 99, 100)
+    cam.setParameter("ActiveWidth", 1340) 
+    cam.setParameter("ActiveHeight", 100)
+    cam.setParameter("ActiveLeftMargin", 0) 
+    cam.setParameter("ActiveRightMargin", 0)
+    cam.setParameter("ActiveTopMargin", 8) 
+    cam.setParameter("ActiveBottomMargin", 8)
+    cam.setParameter("VerticalShiftRate", 3.2)
+    
+    # set logic out to not ready - needed for external trigger electronic
+    cam.setParameter("OutputSignal", PicamOutputSignal["Busy"])
+    
+    # shutter delays; open before trigger corresponds to shutter opening pre delay
+    cam.setParameter("ShutterTimingMode", PicamShutterTimingMode["Normal"]) # OpenBeforeTrigger, Normal
+    cam.setParameter("ShutterClosingDelay", 0)
+    
+    # sensor cleaning
+    cam.setParameter("CleanSectionFinalHeightCount", 1)
+    cam.setParameter("CleanSectionFinalHeight", 100)
+    cam.setParameter("CleanSerialRegister", False)
+    cam.setParameter("CleanCycleCount", 1)
+    cam.setParameter("CleanCycleHeight", 100)
+    cam.setParameter("CleanUntilTrigger", True)
+    
+    # sensor gain settings
+    # according to manual, Pixis supports 100kHz and 2MHz; select fastest
+    cam.setParameter("AdcSpeed", 2.0)
+    cam.setParameter("AdcAnalogGain", PicamAdcAnalogGain["Low"])
+    cam.setParameter("AdcQuality", PicamAdcQuality["HighCapacity"])
+    
+    # trigger and timing settings
+    cam.setParameter("TriggerDetermination", PicamTriggerDetermination["PositivePolarity"])
+    cam.setParameter("TriggerResponse", PicamTriggerResponse["ReadoutPerTrigger"])
+    
+    # send configuration - this step is important!
+    cam.sendConfiguration()
+    
+    # get readout speed
+    print("Estimated readout time = %f ms" % cam.getParameter("ReadoutTimeCalculation"))
+    
+    # record a frame - in the present example you need an external trigger pulse
+    data = cam.readNFrames(1)
+    
+    # clean up
+    cam.disconnect()
+    cam.unloadLibrary()
+    
+    # display the result
+    pl.plot(data)
+    pl.show()
+ 
+ 
+See also:
+
+.. toctree::
+   :maxdepth: 2
+
+   picam_supporting
+
+   
+.. automodule:: picam
+    :members:

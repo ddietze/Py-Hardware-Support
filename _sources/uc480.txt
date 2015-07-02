@@ -1,0 +1,34 @@
+Thorlabs' uc480 CCD/CMOS Cameras - :py:mod:`uc480`
+==================================================
+
+This module adds support for Thorlabs' uc480 CCD and CMOS cameras to python based on :py:mod:`ctypes`. This module has been tested on Windows 7 and Ubuntu 15.04. 
+
+Eample using :py:mod:`matplotlib` for displaying a captured image::
+
+    import uc480
+    import pylab as pl
+    
+    # create instance and connect to library
+    cam = uc480.uc480()
+    
+    # connect to first available camera
+    cam.connect()
+    
+    # take a single image
+    img = self.cam.acquire()
+    
+    # clean up
+    cam.disconnect()
+    
+    pl.imshow(img)
+    pl.show()
+
+See also: 
+
+.. toctree::
+   :maxdepth: 2
+
+   uc480_supporting
+   
+.. automodule:: uc480
+    :members:

@@ -1,0 +1,5 @@
+Ophir USBI ActiveX Support - :py:mod:`ophirUSBI`
+================================================
+
+.. automodule:: ophirUSBI
+    :members:

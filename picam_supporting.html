@@ -1,0 +1,495 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Supporting Files for Princeton Instruments’ PICam Library - picam_types &mdash; Python Hardware Support 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+    <link rel="top" title="Python Hardware Support 1.0 documentation" href="index.html" />
+    <link rel="up" title="Support for Princeton Instruments’ PICam Library - picam" href="picam.html" />
+    <link rel="next" title="Ophir USBI ActiveX Support - ophirUSBI" href="ophirUSBI.html" />
+    <link rel="prev" title="Support for Princeton Instruments’ PICam Library - picam" href="picam.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ophirUSBI.html" title="Ophir USBI ActiveX Support - ophirUSBI"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="picam.html" title="Support for Princeton Instruments’ PICam Library - picam"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Hardware Support 1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="picam.html" accesskey="U">Support for Princeton Instruments&#8217; PICam Library - <code class="docutils literal"><span class="pre">picam</span></code></a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="picam.html"
+                        title="previous chapter">Support for Princeton Instruments&#8217; PICam Library - <code class="docutils literal"><span class="pre">picam</span></code></a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ophirUSBI.html"
+                        title="next chapter">Ophir USBI ActiveX Support - <code class="docutils literal"><span class="pre">ophirUSBI</span></code></a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-picam.picam_types">
+<span id="supporting-files-for-princeton-instruments-picam-library-picam-types"></span><h1>Supporting Files for Princeton Instruments&#8217; PICam Library - <code class="xref py py-mod docutils literal"><span class="pre">picam_types</span></code><a class="headerlink" href="#module-picam.picam_types" title="Permalink to this headline">¶</a></h1>
+<p>Defines data types, enums and some structures to be used with the main module <a class="reference internal" href="picam.html#module-picam" title="picam"><code class="xref py py-mod docutils literal"><span class="pre">picam</span></code></a>!</p>
+<p>As there are no enums in python, I have implemented each enumeration as dictionary having the same name and entries as the library version. In addition, for each enum <em>XX</em>, there is a lookup table called <em>XXLookup</em>, which takes the enum value as key and returns the name of the entry. For a complete list of valid enumeration values, please refer to the <strong>PICam SDK manual</strong>.</p>
+<dl class="class">
+<dt id="picam.picam_types.PicamAcquisitionStatus">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamAcquisitionStatus</code><a class="headerlink" href="#picam.picam_types.PicamAcquisitionStatus" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>running</strong> (<a class="reference internal" href="#picam.picam_types.pibln" title="picam.picam_types.pibln"><em>pibln</em></a>) &#8211; </li>
+<li><strong>errors</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>readout_rate</strong> (<a class="reference internal" href="#picam.picam_types.piflt" title="picam.picam_types.piflt"><em>piflt</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="picam.picam_types.PicamAvailableData">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamAvailableData</code><a class="headerlink" href="#picam.picam_types.PicamAvailableData" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>initial_readout</strong> (<a class="reference internal" href="#picam.picam_types.pivoid" title="picam.picam_types.pivoid"><em>pivoid</em></a>) &#8211; </li>
+<li><strong>readout_count</strong> (<a class="reference internal" href="#picam.picam_types.pi64s" title="picam.picam_types.pi64s"><em>pi64s</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="picam.picam_types.PicamCameraID">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamCameraID</code><a class="headerlink" href="#picam.picam_types.PicamCameraID" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>model</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>computer_interface</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>sensor_name</strong> (<em>pichar[PicamStringSize[&#8220;SensorName&#8221;]]</em>) &#8211; </li>
+<li><strong>* PicamStringSize[&quot;SerialNumber&quot;] serial_number</strong> (<a class="reference internal" href="#picam.picam_types.pichar" title="picam.picam_types.pichar"><em>pichar</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="picam.picam_types.PicamCollectionConstraint">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamCollectionConstraint</code><a class="headerlink" href="#picam.picam_types.PicamCollectionConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scope</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>severity</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>values_array</strong> (<em>ctypes.POINTER(piflt)</em>) &#8211; </li>
+<li><strong>values_count</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="picam.picam_types.PicamFirmwareDetail">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamFirmwareDetail</code><a class="headerlink" href="#picam.picam_types.PicamFirmwareDetail" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>pichar[PicamStringSize[&#8220;FirmwareName&#8221;]]</em>) &#8211; </li>
+<li><strong>detail</strong> (<em>pichar[PicamStringSize[&#8220;FirmwareDetail&#8221;]]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="picam.picam_types.PicamModulation">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamModulation</code><a class="headerlink" href="#picam.picam_types.PicamModulation" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>duration</strong> (<a class="reference internal" href="#picam.picam_types.piflt" title="picam.picam_types.piflt"><em>piflt</em></a>) &#8211; </li>
+<li><strong>frequency</strong> (<a class="reference internal" href="#picam.picam_types.piflt" title="picam.picam_types.piflt"><em>piflt</em></a>) &#8211; </li>
+<li><strong>phase</strong> (<a class="reference internal" href="#picam.picam_types.piflt" title="picam.picam_types.piflt"><em>piflt</em></a>) &#8211; </li>
+<li><strong>output_signal_frequency</strong> (<a class="reference internal" href="#picam.picam_types.piflt" title="picam.picam_types.piflt"><em>piflt</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="picam.picam_types.PicamModulations">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamModulations</code><a class="headerlink" href="#picam.picam_types.PicamModulations" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modulation_array</strong> (<em>ctypes.POINTER(PicamModulation)</em>) &#8211; </li>
+<li><strong>modulation_count</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="picam.picam_types.PicamModulationsConstraint">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamModulationsConstraint</code><a class="headerlink" href="#picam.picam_types.PicamModulationsConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scope</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>severity</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>empty_set</strong> (<a class="reference internal" href="#picam.picam_types.pibln" title="picam.picam_types.pibln"><em>pibln</em></a>) &#8211; </li>
+<li><strong>maximum_modulation_count</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>duration_constraint</strong> (<a class="reference internal" href="#picam.picam_types.PicamRangeConstraint" title="picam.picam_types.PicamRangeConstraint"><em>PicamRangeConstraint</em></a>) &#8211; </li>
+<li><strong>frequency_constraint</strong> (<a class="reference internal" href="#picam.picam_types.PicamRangeConstraint" title="picam.picam_types.PicamRangeConstraint"><em>PicamRangeConstraint</em></a>) &#8211; </li>
+<li><strong>phase_constraint</strong> (<a class="reference internal" href="#picam.picam_types.PicamRangeConstraint" title="picam.picam_types.PicamRangeConstraint"><em>PicamRangeConstraint</em></a>) &#8211; </li>
+<li><strong>output_signal_frequency_constraint</strong> (<a class="reference internal" href="#picam.picam_types.PicamRangeConstraint" title="picam.picam_types.PicamRangeConstraint"><em>PicamRangeConstraint</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="picam.picam_types.PicamPulse">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamPulse</code><a class="headerlink" href="#picam.picam_types.PicamPulse" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>delay</strong> (<a class="reference internal" href="#picam.picam_types.piflt" title="picam.picam_types.piflt"><em>piflt</em></a>) &#8211; </li>
+<li><strong>width</strong> (<a class="reference internal" href="#picam.picam_types.piflt" title="picam.picam_types.piflt"><em>piflt</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="picam.picam_types.PicamPulseConstraint">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamPulseConstraint</code><a class="headerlink" href="#picam.picam_types.PicamPulseConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scope</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>severity</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>empty_set</strong> (<a class="reference internal" href="#picam.picam_types.pibln" title="picam.picam_types.pibln"><em>pibln</em></a>) &#8211; </li>
+<li><strong>delay_constraint</strong> (<a class="reference internal" href="#picam.picam_types.PicamRangeConstraint" title="picam.picam_types.PicamRangeConstraint"><em>PicamRangeConstraint</em></a>) &#8211; </li>
+<li><strong>width_constraint</strong> (<a class="reference internal" href="#picam.picam_types.PicamRangeConstraint" title="picam.picam_types.PicamRangeConstraint"><em>PicamRangeConstraint</em></a>) &#8211; </li>
+<li><strong>minimum_duration</strong> (<a class="reference internal" href="#picam.picam_types.piflt" title="picam.picam_types.piflt"><em>piflt</em></a>) &#8211; </li>
+<li><strong>maximum_duration</strong> (<a class="reference internal" href="#picam.picam_types.piflt" title="picam.picam_types.piflt"><em>piflt</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="picam.picam_types.PicamRangeConstraint">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamRangeConstraint</code><a class="headerlink" href="#picam.picam_types.PicamRangeConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scope</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>severity</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>empty_set</strong> (<a class="reference internal" href="#picam.picam_types.pibln" title="picam.picam_types.pibln"><em>pibln</em></a>) &#8211; </li>
+<li><strong>minimum</strong> (<a class="reference internal" href="#picam.picam_types.piflt" title="picam.picam_types.piflt"><em>piflt</em></a>) &#8211; </li>
+<li><strong>maximum</strong> (<a class="reference internal" href="#picam.picam_types.piflt" title="picam.picam_types.piflt"><em>piflt</em></a>) &#8211; </li>
+<li><strong>increment</strong> (<a class="reference internal" href="#picam.picam_types.piflt" title="picam.picam_types.piflt"><em>piflt</em></a>) &#8211; </li>
+<li><strong>excluded_values_array</strong> (<em>ctypes.POINTER(piflt)</em>) &#8211; </li>
+<li><strong>excluded_values_count</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>outlying_values_array</strong> (<em>ctypes.POINTER(piflt)</em>) &#8211; </li>
+<li><strong>outlying_values_count</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="picam.picam_types.PicamRoi">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamRoi</code><a class="headerlink" href="#picam.picam_types.PicamRoi" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>width</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>x_binning</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>y</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>height</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>y_binning</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="picam.picam_types.PicamRois">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamRois</code><a class="headerlink" href="#picam.picam_types.PicamRois" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>roi_array</strong> (<em>ctypes.POINTER(PicamRoi)</em>) &#8211; </li>
+<li><strong>roi_count</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="picam.picam_types.PicamRoisConstraint">
+<em class="property">class </em><code class="descclassname">picam.picam_types.</code><code class="descname">PicamRoisConstraint</code><a class="headerlink" href="#picam.picam_types.PicamRoisConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scope</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>severity</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>empty_set</strong> (<a class="reference internal" href="#picam.picam_types.pibln" title="picam.picam_types.pibln"><em>pibln</em></a>) &#8211; </li>
+<li><strong>rules</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>maximum_roi_count</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>x_constraint</strong> (<a class="reference internal" href="#picam.picam_types.PicamRangeConstraint" title="picam.picam_types.PicamRangeConstraint"><em>PicamRangeConstraint</em></a>) &#8211; </li>
+<li><strong>width_constraint</strong> (<a class="reference internal" href="#picam.picam_types.PicamRangeConstraint" title="picam.picam_types.PicamRangeConstraint"><em>PicamRangeConstraint</em></a>) &#8211; </li>
+<li><strong>x_binning_limits_array</strong> (<em>ctypes.POINTER(piint)</em>) &#8211; </li>
+<li><strong>x_binning_limits_count</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+<li><strong>y_constraint</strong> (<a class="reference internal" href="#picam.picam_types.PicamRangeConstraint" title="picam.picam_types.PicamRangeConstraint"><em>PicamRangeConstraint</em></a>) &#8211; </li>
+<li><strong>height_constraint</strong> (<a class="reference internal" href="#picam.picam_types.PicamRangeConstraint" title="picam.picam_types.PicamRangeConstraint"><em>PicamRangeConstraint</em></a>) &#8211; </li>
+<li><strong>y_binning_limits_array</strong> (<em>ctypes.POINTER(piint)</em>) &#8211; </li>
+<li><strong>y_binning_limits_count</strong> (<a class="reference internal" href="#picam.picam_types.piint" title="picam.picam_types.piint"><em>piint</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.pi16s">
+<code class="descclassname">picam.picam_types.</code><code class="descname">pi16s</code><a class="headerlink" href="#picam.picam_types.pi16s" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_short</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.pi16u">
+<code class="descclassname">picam.picam_types.</code><code class="descname">pi16u</code><a class="headerlink" href="#picam.picam_types.pi16u" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_ushort</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.pi32s">
+<code class="descclassname">picam.picam_types.</code><code class="descname">pi32s</code><a class="headerlink" href="#picam.picam_types.pi32s" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_long</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.pi32u">
+<code class="descclassname">picam.picam_types.</code><code class="descname">pi32u</code><a class="headerlink" href="#picam.picam_types.pi32u" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_ulong</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.pi64s">
+<code class="descclassname">picam.picam_types.</code><code class="descname">pi64s</code><a class="headerlink" href="#picam.picam_types.pi64s" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_longlong</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.pi64u">
+<code class="descclassname">picam.picam_types.</code><code class="descname">pi64u</code><a class="headerlink" href="#picam.picam_types.pi64u" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_ulonglong</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.pi8s">
+<code class="descclassname">picam.picam_types.</code><code class="descname">pi8s</code><a class="headerlink" href="#picam.picam_types.pi8s" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_byte</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.pi8u">
+<code class="descclassname">picam.picam_types.</code><code class="descname">pi8u</code><a class="headerlink" href="#picam.picam_types.pi8u" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_ubyte</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.pibln">
+<code class="descclassname">picam.picam_types.</code><code class="descname">pibln</code><a class="headerlink" href="#picam.picam_types.pibln" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_bool</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.pibool">
+<code class="descclassname">picam.picam_types.</code><code class="descname">pibool</code><a class="headerlink" href="#picam.picam_types.pibool" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_bool</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.pibyte">
+<code class="descclassname">picam.picam_types.</code><code class="descname">pibyte</code><a class="headerlink" href="#picam.picam_types.pibyte" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_byte</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.pichar">
+<code class="descclassname">picam.picam_types.</code><code class="descname">pichar</code><a class="headerlink" href="#picam.picam_types.pichar" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_char</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.piflt">
+<code class="descclassname">picam.picam_types.</code><code class="descname">piflt</code><a class="headerlink" href="#picam.picam_types.piflt" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_double</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.piint">
+<code class="descclassname">picam.picam_types.</code><code class="descname">piint</code><a class="headerlink" href="#picam.picam_types.piint" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_long</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="picam.picam_types.pivoid">
+<code class="descclassname">picam.picam_types.</code><code class="descname">pivoid</code><a class="headerlink" href="#picam.picam_types.pivoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">c_void_p</span></code></p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ophirUSBI.html" title="Ophir USBI ActiveX Support - ophirUSBI"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="picam.html" title="Support for Princeton Instruments’ PICam Library - picam"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Hardware Support 1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="picam.html" >Support for Princeton Instruments&#8217; PICam Library - <code class="docutils literal"><span class="pre">picam</span></code></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010, 2015, Daniel Dietze.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

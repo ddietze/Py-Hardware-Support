@@ -1,0 +1,1223 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Thorlabs’ uc480 CCD/CMOS Cameras - Supporting Files &mdash; Python Hardware Support 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+    <link rel="top" title="Python Hardware Support 1.0 documentation" href="index.html" />
+    <link rel="up" title="Thorlabs’ uc480 CCD/CMOS Cameras - uc480" href="uc480.html" />
+    <link rel="prev" title="Thorlabs’ uc480 CCD/CMOS Cameras - uc480" href="uc480.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="uc480.html" title="Thorlabs’ uc480 CCD/CMOS Cameras - uc480"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Hardware Support 1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="uc480.html" accesskey="U">Thorlabs&#8217; uc480 CCD/CMOS Cameras - <code class="docutils literal"><span class="pre">uc480</span></code></a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Thorlabs&#8217; uc480 CCD/CMOS Cameras - Supporting Files</a><ul>
+<li><a class="reference internal" href="#module-uc480.uc480_h">Documentation of <code class="docutils literal"><span class="pre">uc480.uc480_h</span></code></a></li>
+<li><a class="reference internal" href="#module-uc480.wintypes_linux">Documentation of <code class="docutils literal"><span class="pre">uc480.wintypes_linux</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="uc480.html"
+                        title="previous chapter">Thorlabs&#8217; uc480 CCD/CMOS Cameras - <code class="docutils literal"><span class="pre">uc480</span></code></a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="thorlabs-uc480-ccd-cmos-cameras-supporting-files">
+<h1>Thorlabs&#8217; uc480 CCD/CMOS Cameras - Supporting Files<a class="headerlink" href="#thorlabs-uc480-ccd-cmos-cameras-supporting-files" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-uc480.uc480_h">
+<span id="documentation-of-uc480-uc480-h"></span><h2>Documentation of <a class="reference internal" href="#module-uc480.uc480_h" title="uc480.uc480_h"><code class="xref py py-mod docutils literal"><span class="pre">uc480.uc480_h</span></code></a><a class="headerlink" href="#module-uc480.uc480_h" title="Permalink to this headline">¶</a></h2>
+<p>Thorlabs&#8217; uc480 header file translated to python.</p>
+<dl class="class">
+<dt id="uc480.uc480_h.AOI_SEQUENCE_PARAMS">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">AOI_SEQUENCE_PARAMS</code><a class="headerlink" href="#uc480.uc480_h.AOI_SEQUENCE_PARAMS" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>s32AOIIndex</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>s32NumberOfCycleRepetitions</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>s32X</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>s32Y</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>dblExposure</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+<li><strong>s32Gain</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>s32BinningMode</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>s32SubsamplingMode</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>s32DetachImageParameters</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>dblScalerFactor</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+<li><strong>byReserved</strong> (<em>BYTE[64]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.AUTO_BRIGHT_STATUS">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">AUTO_BRIGHT_STATUS</code><a class="headerlink" href="#uc480.uc480_h.AUTO_BRIGHT_STATUS" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>curValue</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>curError</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_long" title="(in Python v2.7)"><em>ctypes.c_long</em></a>) &#8211; </li>
+<li><strong>curController</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>curCtrlStatus</strong> (<em>DWORD</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.AUTO_WB_CHANNNEL_STATUS">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">AUTO_WB_CHANNNEL_STATUS</code><a class="headerlink" href="#uc480.uc480_h.AUTO_WB_CHANNNEL_STATUS" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>curValue</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>curError</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_long" title="(in Python v2.7)"><em>ctypes.c_long</em></a>) &#8211; </li>
+<li><strong>curCtrlStatus</strong> (<em>DWORD</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.AUTO_WB_STATUS">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">AUTO_WB_STATUS</code><a class="headerlink" href="#uc480.uc480_h.AUTO_WB_STATUS" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>RedChannel</strong> (<a class="reference internal" href="#uc480.uc480_h.AUTO_WB_CHANNNEL_STATUS" title="uc480.uc480_h.AUTO_WB_CHANNNEL_STATUS"><em>AUTO_WB_CHANNNEL_STATUS</em></a>) &#8211; </li>
+<li><strong>GreenChannel</strong> (<a class="reference internal" href="#uc480.uc480_h.AUTO_WB_CHANNNEL_STATUS" title="uc480.uc480_h.AUTO_WB_CHANNNEL_STATUS"><em>AUTO_WB_CHANNNEL_STATUS</em></a>) &#8211; </li>
+<li><strong>BlueChannel</strong> (<a class="reference internal" href="#uc480.uc480_h.AUTO_WB_CHANNNEL_STATUS" title="uc480.uc480_h.AUTO_WB_CHANNNEL_STATUS"><em>AUTO_WB_CHANNNEL_STATUS</em></a>) &#8211; </li>
+<li><strong>curController</strong> (<em>DWORD</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.BOARDINFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">BOARDINFO</code><a class="headerlink" href="#uc480.uc480_h.BOARDINFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>SerNo</strong> (<em>ctypes.c_char[12]</em>) &#8211; Serial number of sensor chip.</li>
+<li><strong>ID</strong> (<em>ctypes.c_char[20]</em>) &#8211; Camera ID.</li>
+<li><strong>Version</strong> (<em>ctypes.c_char[10]</em>) &#8211; </li>
+<li><strong>Date</strong> (<em>ctypes.c_char[12]</em>) &#8211; </li>
+<li><strong>Select</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_ubyte" title="(in Python v2.7)"><em>ctypes.c_ubyte</em></a>) &#8211; </li>
+<li><strong>Type</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_ubyte" title="(in Python v2.7)"><em>ctypes.c_ubyte</em></a>) &#8211; </li>
+<li><strong>Reserved</strong> (<em>ctypes.c_char[8]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.BUFFER_CONVERSION_PARAMS">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">BUFFER_CONVERSION_PARAMS</code><a class="headerlink" href="#uc480.uc480_h.BUFFER_CONVERSION_PARAMS" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pSourceBuffer</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_char_p" title="(in Python v2.7)"><em>ctypes.c_char_p</em></a>) &#8211; </li>
+<li><strong>pDestBuffer</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_char_p" title="(in Python v2.7)"><em>ctypes.c_char_p</em></a>) &#8211; </li>
+<li><strong>nDestPixelFormat</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nDestPixelConverter</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nDestGamma</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nDestEdgeEnhancement</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nDestColorCorrectionMode</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nDestSaturationU</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nDestSaturationV</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>reserved</strong> (<em>BYTE[32]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="uc480.uc480_h.CAMINFO">
+<code class="descclassname">uc480.uc480_h.</code><code class="descname">CAMINFO</code><a class="headerlink" href="#uc480.uc480_h.CAMINFO" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#uc480.uc480_h.BOARDINFO" title="uc480.uc480_h.BOARDINFO"><code class="xref py py-class docutils literal"><span class="pre">BOARDINFO</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="uc480.uc480_h.FALCINFO">
+<code class="descclassname">uc480.uc480_h.</code><code class="descname">FALCINFO</code><a class="headerlink" href="#uc480.uc480_h.FALCINFO" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#uc480.uc480_h.BOARDINFO" title="uc480.uc480_h.BOARDINFO"><code class="xref py py-class docutils literal"><span class="pre">BOARDINFO</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.FDT_INFO_EL">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">FDT_INFO_EL</code><a class="headerlink" href="#uc480.uc480_h.FDT_INFO_EL" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nFacePosX</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nFacePosY</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nFaceWidth</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nFaceHeight</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nAngle</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nPosture</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>TimestampSystem</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480TIME" title="uc480.uc480_h.UC480TIME"><em>UC480TIME</em></a>) &#8211; </li>
+<li><strong>nReserved</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_ulonglong" title="(in Python v2.7)"><em>ctypes.c_ulonglong</em></a>) &#8211; </li>
+<li><strong>nReserved2</strong> (<em>UINT[4]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.ID_RANGE">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">ID_RANGE</code><a class="headerlink" href="#uc480.uc480_h.ID_RANGE" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>u32First</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>u32Last</strong> (<em>UINT</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.IMAGE_FILE_PARAMS">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">IMAGE_FILE_PARAMS</code><a class="headerlink" href="#uc480.uc480_h.IMAGE_FILE_PARAMS" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pwchFileName</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_wchar_p" title="(in Python v2.7)"><em>ctypes.c_wchar_p</em></a>) &#8211; </li>
+<li><strong>nFileType</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>nQuality</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>ppcImageMem</strong> (<em>ctypes.POINTER(ctypes.c_char_p)</em>) &#8211; </li>
+<li><strong>pnImageID</strong> (<em>ctypes.POINTER(wt.UINT)</em>) &#8211; </li>
+<li><strong>reserved</strong> (<em>BYTE[32]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.IMAGE_FORMAT_INFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">IMAGE_FORMAT_INFO</code><a class="headerlink" href="#uc480.uc480_h.IMAGE_FORMAT_INFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nFormatID</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nWidth</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>nHeight</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>nX0</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nY0</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>nSupportedCaptureModes</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>nBinningMode</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>nSubsamplingMode</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>strFormatName</strong> (<em>ctypes.c_char[64]</em>) &#8211; </li>
+<li><strong>dSensorScalerFactor</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+<li><strong>nReserved</strong> (<em>UINT[22]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.IMGBUF_ITERATION_INFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">IMGBUF_ITERATION_INFO</code><a class="headerlink" href="#uc480.uc480_h.IMGBUF_ITERATION_INFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>u32IterationID</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>u32ImageID</strong> (<em>UINT</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.IO_FLASH_PARAMS">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">IO_FLASH_PARAMS</code><a class="headerlink" href="#uc480.uc480_h.IO_FLASH_PARAMS" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>s32Delay</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>u32Duration</strong> (<em>UINT</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.IO_GPIO_CONFIGURATION">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">IO_GPIO_CONFIGURATION</code><a class="headerlink" href="#uc480.uc480_h.IO_GPIO_CONFIGURATION" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>u32Gpio</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>u32Caps</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>u32Configuration</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>u32State</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>u32Reserved</strong> (<em>UINT[12]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.IO_PWM_PARAMS">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">IO_PWM_PARAMS</code><a class="headerlink" href="#uc480.uc480_h.IO_PWM_PARAMS" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dblFrequency_Hz</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+<li><strong>dblDutyCycle</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.IS_DEVICE_INFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">IS_DEVICE_INFO</code><a class="headerlink" href="#uc480.uc480_h.IS_DEVICE_INFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>infoDevHeartbeat</strong> (<a class="reference internal" href="#uc480.uc480_h.IS_DEVICE_INFO_HEARTBEAT" title="uc480.uc480_h.IS_DEVICE_INFO_HEARTBEAT"><em>IS_DEVICE_INFO_HEARTBEAT</em></a>) &#8211; </li>
+<li><strong>infoDevControl</strong> (<a class="reference internal" href="#uc480.uc480_h.IS_DEVICE_INFO_CONTROL" title="uc480.uc480_h.IS_DEVICE_INFO_CONTROL"><em>IS_DEVICE_INFO_CONTROL</em></a>) &#8211; </li>
+<li><strong>reserved</strong> (<em>BYTE[240]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.IS_DEVICE_INFO_CONTROL">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">IS_DEVICE_INFO_CONTROL</code><a class="headerlink" href="#uc480.uc480_h.IS_DEVICE_INFO_CONTROL" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dwDeviceId</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>reserved</strong> (<em>BYTE[146]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.IS_DEVICE_INFO_HEARTBEAT">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">IS_DEVICE_INFO_HEARTBEAT</code><a class="headerlink" href="#uc480.uc480_h.IS_DEVICE_INFO_HEARTBEAT" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>reserved_1</strong> (<em>BYTE[24]</em>) &#8211; </li>
+<li><strong>dwRuntimeFirmwareVersion</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>reserved_2</strong> (<em>BYTE[8]</em>) &#8211; </li>
+<li><strong>wTemperature</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>wLinkSpeed_Mb</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>reserved_3</strong> (<em>BYTE[6]</em>) &#8211; </li>
+<li><strong>wComportOffset</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>reserved</strong> (<em>BYTE[200]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.IS_POINT_2D">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">IS_POINT_2D</code><a class="headerlink" href="#uc480.uc480_h.IS_POINT_2D" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>s32X</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>s32Y</strong> (<em>INT</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.IS_RANGE_S32">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">IS_RANGE_S32</code><a class="headerlink" href="#uc480.uc480_h.IS_RANGE_S32" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>s32Min</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>s32Max</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>s32Inc</strong> (<em>INT</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.IS_RECT">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">IS_RECT</code><a class="headerlink" href="#uc480.uc480_h.IS_RECT" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>s32X</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>s32Y</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>s32Width</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>s23Height</strong> (<em>INT</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.IS_SIZE_2D">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">IS_SIZE_2D</code><a class="headerlink" href="#uc480.uc480_h.IS_SIZE_2D" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>s32Width</strong> (<em>INT</em>) &#8211; </li>
+<li><strong>s23Height</strong> (<em>INT</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.KNEEPOINT">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">KNEEPOINT</code><a class="headerlink" href="#uc480.uc480_h.KNEEPOINT" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.KNEEPOINTARRAY">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">KNEEPOINTARRAY</code><a class="headerlink" href="#uc480.uc480_h.KNEEPOINTARRAY" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>NumberOfUsedKneepoints</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_int" title="(in Python v2.7)"><em>ctypes.c_int</em></a>) &#8211; </li>
+<li><strong>Kneepoint</strong> (<em>KNEEPOINT[10]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.KNEEPOINTINFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">KNEEPOINTINFO</code><a class="headerlink" href="#uc480.uc480_h.KNEEPOINTINFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>NumberOfSupportedKneepoints</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_int" title="(in Python v2.7)"><em>ctypes.c_int</em></a>) &#8211; </li>
+<li><strong>NumberOfUsedKneepoints</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_int" title="(in Python v2.7)"><em>ctypes.c_int</em></a>) &#8211; </li>
+<li><strong>MinValueX</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+<li><strong>MaxValueX</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+<li><strong>MinValueY</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+<li><strong>MaxValueY</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+<li><strong>DefaultKneepoint</strong> (<em>KNEEPOINT[10]</em>) &#8211; </li>
+<li><strong>Reserved</strong> (<em>ctypes.c_int[10]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.MEASURE_SHARPNESS_AOI_INFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">MEASURE_SHARPNESS_AOI_INFO</code><a class="headerlink" href="#uc480.uc480_h.MEASURE_SHARPNESS_AOI_INFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>u32NumberAOI</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>u32SharpnessValue</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>rcAOI</strong> (<a class="reference internal" href="#uc480.uc480_h.IS_RECT" title="uc480.uc480_h.IS_RECT"><em>IS_RECT</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.OPENGL_DISPLAY">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">OPENGL_DISPLAY</code><a class="headerlink" href="#uc480.uc480_h.OPENGL_DISPLAY" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nWindowID</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_int" title="(in Python v2.7)"><em>ctypes.c_int</em></a>) &#8211; </li>
+<li><strong>pDisplay</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_void_p" title="(in Python v2.7)"><em>ctypes.c_void_p</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.RANGE_OF_VALUES_U32">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">RANGE_OF_VALUES_U32</code><a class="headerlink" href="#uc480.uc480_h.RANGE_OF_VALUES_U32" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>u32Minimum</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>u32Maximum</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>u32Increment</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>u32Default</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>u32Infinite</strong> (<em>UINT</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.REVISIONINFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">REVISIONINFO</code><a class="headerlink" href="#uc480.uc480_h.REVISIONINFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>size</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Sensor</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Cypress</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Blackfin</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>DspFirmware</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>USB_Board</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Sensor_Board</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Processing_Board</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Memory_Board</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Housing</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Filter</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Timing_Board</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Product</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Power_Board</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Power_Board</strong> &#8211; </li>
+<li><strong>Logic_Board</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>FX3</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>FPGA</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Reserved</strong> (<em>ctypes.c_char[92]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.SENSORINFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">SENSORINFO</code><a class="headerlink" href="#uc480.uc480_h.SENSORINFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>SensorID</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>strSensorName</strong> (<em>ctypes.c_char[32]</em>) &#8211; </li>
+<li><strong>nColorMode</strong> (<em>BYTE</em>) &#8211; </li>
+<li><strong>nMaxWidth</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>nMaxHeight</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>bMasterGain</strong> (<em>BOOL</em>) &#8211; </li>
+<li><strong>bRGain</strong> (<em>BOOL</em>) &#8211; </li>
+<li><strong>bGGain</strong> (<em>BOOL</em>) &#8211; </li>
+<li><strong>bBGain</strong> (<em>BOOL</em>) &#8211; </li>
+<li><strong>wPixelSize</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>Reserved</strong> (<em>ctypes.c_char[14]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.SENSORSCALERINFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">SENSORSCALERINFO</code><a class="headerlink" href="#uc480.uc480_h.SENSORSCALERINFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nCurrMode</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_int" title="(in Python v2.7)"><em>ctypes.c_int</em></a>) &#8211; </li>
+<li><strong>nNumberOfSteps</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_int" title="(in Python v2.7)"><em>ctypes.c_int</em></a>) &#8211; </li>
+<li><strong>dblFactorIncrement</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+<li><strong>dblMinFactor</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+<li><strong>dblMaxFactor</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+<li><strong>dblCurrFactor</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_double" title="(in Python v2.7)"><em>ctypes.c_double</em></a>) &#8211; </li>
+<li><strong>nSupportedModes</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_int" title="(in Python v2.7)"><em>ctypes.c_int</em></a>) &#8211; </li>
+<li><strong>bReserved</strong> (<em>ctypes.c_byte[84]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480IMAGEINFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480IMAGEINFO</code><a class="headerlink" href="#uc480.uc480_h.UC480IMAGEINFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dwFlags</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>byReserved1</strong> (<em>BYTE[4]</em>) &#8211; </li>
+<li><strong>u64TimestampDevice</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_ulonglong" title="(in Python v2.7)"><em>ctypes.c_ulonglong</em></a>) &#8211; </li>
+<li><strong>TimestampSystem</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480TIME" title="uc480.uc480_h.UC480TIME"><em>UC480TIME</em></a>) &#8211; </li>
+<li><strong>dwIoStatus</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>wAOIIndex</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>wAOICycle</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>u64FrameNumber</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_ulonglong" title="(in Python v2.7)"><em>ctypes.c_ulonglong</em></a>) &#8211; </li>
+<li><strong>dwImageBuffers</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwImageBuffersInUse</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwReserved3</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwImageHeight</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwImageWidth</strong> (<em>DWORD</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480TIME">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480TIME</code><a class="headerlink" href="#uc480.uc480_h.UC480TIME" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>wYear</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>wMonth</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>wDay</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>wHour</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>wMinute</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>wSecond</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>wMilliseconds</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>byReserved</strong> (<em>BYTE[10]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_AUTO_INFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_AUTO_INFO</code><a class="headerlink" href="#uc480.uc480_h.UC480_AUTO_INFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nSize</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_uint" title="(in Python v2.7)"><em>ctypes.c_uint</em></a>) &#8211; </li>
+<li><strong>hDC</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_void_p" title="(in Python v2.7)"><em>ctypes.c_void_p</em></a>) &#8211; </li>
+<li><strong>nCx</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_uint" title="(in Python v2.7)"><em>ctypes.c_uint</em></a>) &#8211; </li>
+<li><strong>nCy</strong> (<a class="reference external" href="https://docs.python.org/library/ctypes.html#ctypes.c_uint" title="(in Python v2.7)"><em>ctypes.c_uint</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_CAMERA_INFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_CAMERA_INFO</code><a class="headerlink" href="#uc480.uc480_h.UC480_CAMERA_INFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dwCameraID</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwDeviceID</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwSensorID</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwInUse</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>SerNo</strong> (<em>ctypes.c_char[16]</em>) &#8211; </li>
+<li><strong>Model</strong> (<em>ctypes.c_char[16]</em>) &#8211; </li>
+<li><strong>dwStatus</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwReserved</strong> (<em>DWORD[15]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_CAPTURE_ERROR_INFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_CAPTURE_ERROR_INFO</code><a class="headerlink" href="#uc480.uc480_h.UC480_CAPTURE_ERROR_INFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dwCapErrCnt_Total</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>reserved</strong> (<em>BYTE[60]</em>) &#8211; </li>
+<li><strong>adwCapErrCnt_Detail</strong> (<em>DWORD[256]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_CAPTURE_STATUS_INFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_CAPTURE_STATUS_INFO</code><a class="headerlink" href="#uc480.uc480_h.UC480_CAPTURE_STATUS_INFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dwCapStatusCnt_Total</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>reserved</strong> (<em>BYTE[60]</em>) &#8211; </li>
+<li><strong>adwCapStatusCnt_Detail</strong> (<em>DWORD[256]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_COMPORT_CONFIGURATION">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_COMPORT_CONFIGURATION</code><a class="headerlink" href="#uc480.uc480_h.UC480_COMPORT_CONFIGURATION" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>wComportNumber</strong> (<em>WORD</em>) &#8211; </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_ETH_ADAPTER_INFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_ETH_ADAPTER_INFO</code><a class="headerlink" href="#uc480.uc480_h.UC480_ETH_ADAPTER_INFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dwAdapterID</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwDeviceLinkspeed</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>ethcfg</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_ETHERNET_CONFIGURATION" title="uc480.uc480_h.UC480_ETH_ETHERNET_CONFIGURATION"><em>UC480_ETH_ETHERNET_CONFIGURATION</em></a>) &#8211; </li>
+<li><strong>reserved_2</strong> (<em>BYTE[2]</em>) &#8211; </li>
+<li><strong>bIsEnabledDHCP</strong> (<em>BOOL</em>) &#8211; </li>
+<li><strong>autoCfgIp</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_AUTOCFG_IP_SETUP" title="uc480.uc480_h.UC480_ETH_AUTOCFG_IP_SETUP"><em>UC480_ETH_AUTOCFG_IP_SETUP</em></a>) &#8211; </li>
+<li><strong>bIsValidAutoCfgIpRange</strong> (<em>BOOL</em>) &#8211; </li>
+<li><strong>dwCntDevicesKnown</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwCntDevicesPaired</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>wPacketFilter</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>reserved_3</strong> (<em>BYTE[38]</em>) &#8211; </li>
+<li><strong>reserved_4</strong> (<em>BYTE[64]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_ETH_ADDR_IPV4">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_ETH_ADDR_IPV4</code><a class="headerlink" href="#uc480.uc480_h.UC480_ETH_ADDR_IPV4" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>by</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_ADDR_IPV4_by" title="uc480.uc480_h.UC480_ETH_ADDR_IPV4_by"><em>UC480_ETH_ADDR_IPV4_by</em></a>) &#8211; </li>
+<li><strong>dwAddr</strong> (<em>DWORD</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_ETH_ADDR_IPV4_by">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_ETH_ADDR_IPV4_by</code><a class="headerlink" href="#uc480.uc480_h.UC480_ETH_ADDR_IPV4_by" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>by1</strong> (<em>BYTE</em>) &#8211; </li>
+<li><strong>by2</strong> (<em>BYTE</em>) &#8211; </li>
+<li><strong>by3</strong> (<em>BYTE</em>) &#8211; </li>
+<li><strong>by4</strong> (<em>BYTE</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_ETH_ADDR_MAC">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_ETH_ADDR_MAC</code><a class="headerlink" href="#uc480.uc480_h.UC480_ETH_ADDR_MAC" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>abyOctet</strong> (<em>BYTE[6]</em>) &#8211; </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_ETH_AUTOCFG_IP_SETUP">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_ETH_AUTOCFG_IP_SETUP</code><a class="headerlink" href="#uc480.uc480_h.UC480_ETH_AUTOCFG_IP_SETUP" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ipAutoCfgIpRangeBegin</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_ADDR_IPV4" title="uc480.uc480_h.UC480_ETH_ADDR_IPV4"><em>UC480_ETH_ADDR_IPV4</em></a>) &#8211; </li>
+<li><strong>ipAutoCfgIpRangeEnd</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_ADDR_IPV4" title="uc480.uc480_h.UC480_ETH_ADDR_IPV4"><em>UC480_ETH_ADDR_IPV4</em></a>) &#8211; </li>
+<li><strong>reserved</strong> (<em>BYTE[4]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_ETH_DEVICE_INFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_ETH_DEVICE_INFO</code><a class="headerlink" href="#uc480.uc480_h.UC480_ETH_DEVICE_INFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>infoDevHeartbeat</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_DEVICE_INFO_HEARTBEAT" title="uc480.uc480_h.UC480_ETH_DEVICE_INFO_HEARTBEAT"><em>UC480_ETH_DEVICE_INFO_HEARTBEAT</em></a>) &#8211; </li>
+<li><strong>infoDevControl</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_DEVICE_INFO_CONTROL" title="uc480.uc480_h.UC480_ETH_DEVICE_INFO_CONTROL"><em>UC480_ETH_DEVICE_INFO_CONTROL</em></a>) &#8211; </li>
+<li><strong>infoAdapter</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_ADAPTER_INFO" title="uc480.uc480_h.UC480_ETH_ADAPTER_INFO"><em>UC480_ETH_ADAPTER_INFO</em></a>) &#8211; </li>
+<li><strong>infoDriver</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_DRIVER_INFO" title="uc480.uc480_h.UC480_ETH_DRIVER_INFO"><em>UC480_ETH_DRIVER_INFO</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_ETH_DEVICE_INFO_CONTROL">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_ETH_DEVICE_INFO_CONTROL</code><a class="headerlink" href="#uc480.uc480_h.UC480_ETH_DEVICE_INFO_CONTROL" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dwDeviceID</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwControlStatus</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>reserved_1</strong> (<em>BYTE[80]</em>) &#8211; </li>
+<li><strong>reserved_2</strong> (<em>BYTE[64]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_ETH_DEVICE_INFO_HEARTBEAT">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_ETH_DEVICE_INFO_HEARTBEAT</code><a class="headerlink" href="#uc480.uc480_h.UC480_ETH_DEVICE_INFO_HEARTBEAT" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>abySerialNumber</strong> (<em>BYTE[12]</em>) &#8211; </li>
+<li><strong>byDeviceType</strong> (<em>BYTE</em>) &#8211; </li>
+<li><strong>byCameraID</strong> (<em>BYTE</em>) &#8211; </li>
+<li><strong>wSensorID</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>wSizeImgMem_MB</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>reserved_1</strong> (<em>BYTE[2]</em>) &#8211; </li>
+<li><strong>dwVerStarterFirmware</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwVerRuntimeFirmware</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwStatus</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>reserved_2</strong> (<em>BYTE[4]</em>) &#8211; </li>
+<li><strong>wTemperature</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>wLinkSpeed_Mb</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>macDevice</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_ADDR_MAC" title="uc480.uc480_h.UC480_ETH_ADDR_MAC"><em>UC480_ETH_ADDR_MAC</em></a>) &#8211; </li>
+<li><strong>wComportOffset</strong> (<em>WORD</em>) &#8211; </li>
+<li><strong>ipcfgPersistentIpCfg</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_IP_CONFIGURATION" title="uc480.uc480_h.UC480_ETH_IP_CONFIGURATION"><em>UC480_ETH_IP_CONFIGURATION</em></a>) &#8211; </li>
+<li><strong>ipcfgCurrentIpCfg</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_IP_CONFIGURATION" title="uc480.uc480_h.UC480_ETH_IP_CONFIGURATION"><em>UC480_ETH_IP_CONFIGURATION</em></a>) &#8211; </li>
+<li><strong>macPairedHost</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_ADDR_MAC" title="uc480.uc480_h.UC480_ETH_ADDR_MAC"><em>UC480_ETH_ADDR_MAC</em></a>) &#8211; </li>
+<li><strong>reserved_4</strong> (<em>BYTE[2]</em>) &#8211; </li>
+<li><strong>ipPairedHostIp</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_ADDR_IPV4" title="uc480.uc480_h.UC480_ETH_ADDR_IPV4"><em>UC480_ETH_ADDR_IPV4</em></a>) &#8211; </li>
+<li><strong>ipAutoCfgIpRangeBegin</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_ADDR_IPV4" title="uc480.uc480_h.UC480_ETH_ADDR_IPV4"><em>UC480_ETH_ADDR_IPV4</em></a>) &#8211; </li>
+<li><strong>ipAutoCfgIpRangeEnd</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_ADDR_IPV4" title="uc480.uc480_h.UC480_ETH_ADDR_IPV4"><em>UC480_ETH_ADDR_IPV4</em></a>) &#8211; </li>
+<li><strong>abyUserSpace</strong> (<em>BYTE[8]</em>) &#8211; </li>
+<li><strong>reserved_5</strong> (<em>BYTE[84]</em>) &#8211; </li>
+<li><strong>reserved_6</strong> (<em>BYTE[64]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_ETH_DRIVER_INFO">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_ETH_DRIVER_INFO</code><a class="headerlink" href="#uc480.uc480_h.UC480_ETH_DRIVER_INFO" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dwMinVerStarterFirmware</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>dwMaxVerStarterFirmware</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>reserved_1</strong> (<em>BYTE[8]</em>) &#8211; </li>
+<li><strong>reserved_2</strong> (<em>BYTE[64]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_ETH_ETHERNET_CONFIGURATION">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_ETH_ETHERNET_CONFIGURATION</code><a class="headerlink" href="#uc480.uc480_h.UC480_ETH_ETHERNET_CONFIGURATION" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ipcfg</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_IP_CONFIGURATION" title="uc480.uc480_h.UC480_ETH_IP_CONFIGURATION"><em>UC480_ETH_IP_CONFIGURATION</em></a>) &#8211; </li>
+<li><strong>mac</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_ADDR_MAC" title="uc480.uc480_h.UC480_ETH_ADDR_MAC"><em>UC480_ETH_ADDR_MAC</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="uc480.uc480_h.UC480_ETH_IP_CONFIGURATION">
+<em class="property">class </em><code class="descclassname">uc480.uc480_h.</code><code class="descname">UC480_ETH_IP_CONFIGURATION</code><a class="headerlink" href="#uc480.uc480_h.UC480_ETH_IP_CONFIGURATION" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ipAddress</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_ADDR_IPV4" title="uc480.uc480_h.UC480_ETH_ADDR_IPV4"><em>UC480_ETH_ADDR_IPV4</em></a>) &#8211; </li>
+<li><strong>ipSubnetmask</strong> (<a class="reference internal" href="#uc480.uc480_h.UC480_ETH_ADDR_IPV4" title="uc480.uc480_h.UC480_ETH_ADDR_IPV4"><em>UC480_ETH_ADDR_IPV4</em></a>) &#8211; </li>
+<li><strong>reserved</strong> (<em>BYTE</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="uc480.uc480_h.create_bootboost_idlist">
+<code class="descclassname">uc480.uc480_h.</code><code class="descname">create_bootboost_idlist</code><span class="sig-paren">(</span><em>numberOfEntries</em><span class="sig-paren">)</span><a class="headerlink" href="#uc480.uc480_h.create_bootboost_idlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an instance of the IS_BOOTBOOST_IDLIST structure having the properly scaled <em>aList</em> array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>numberOfEntries</strong> (<em>ULONG</em>) &#8211; Number of aList structures requested.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">IS_BOOTBOOST_IDLIST</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>u32NumberOfEntries</strong> (<em>DWORD</em>) &#8211; </li>
+<li><strong>aList</strong> (<em>IS_BOOTBOOST_ID[numberOfEntries]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="uc480.uc480_h.create_camera_list">
+<code class="descclassname">uc480.uc480_h.</code><code class="descname">create_camera_list</code><span class="sig-paren">(</span><em>dwCount</em><span class="sig-paren">)</span><a class="headerlink" href="#uc480.uc480_h.create_camera_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an instance of the UC480_CAMERA_LIST structure having the properly scaled UC480_CAMERA_INFO array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dwCount</strong> (<em>ULONG</em>) &#8211; Number of camera info structures requested.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">UC480_CAMERA_LIST</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dwCount</strong> (<em>ULONG</em>) &#8211; Size of uci.</li>
+<li><strong>uci</strong> (<em>UC480_CAMERA_INFO[dwCount]</em>) &#8211; List of camera info structures.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="uc480.uc480_h.create_fdt_info_list">
+<code class="descclassname">uc480.uc480_h.</code><code class="descname">create_fdt_info_list</code><span class="sig-paren">(</span><em>nNumListElements</em><span class="sig-paren">)</span><a class="headerlink" href="#uc480.uc480_h.create_fdt_info_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an instance of the FDT_INFO_LIST structure having the properly scaled <em>FaceEntry</em> array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nNumListElements</strong> (<em>ULONG</em>) &#8211; Number of face entry structures requested.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">FDT_INFO_LIST</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nSizeOfListEntry</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>nNumDetectedFaces</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>nNumListElements</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>nReserved</strong> (<em>UINT[4]</em>) &#8211; </li>
+<li><strong>FaceEntry</strong> (<em>FDT_INFO_EL[nNumListElements]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="uc480.uc480_h.create_image_format_list">
+<code class="descclassname">uc480.uc480_h.</code><code class="descname">create_image_format_list</code><span class="sig-paren">(</span><em>nNumListElements</em><span class="sig-paren">)</span><a class="headerlink" href="#uc480.uc480_h.create_image_format_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an instance of the IMAGE_FORMAT_LIST structure having the properly scaled <em>FormatInfo</em> array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nNumListElements</strong> (<em>ULONG</em>) &#8211; Number of format info structures requested.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">IMAGE_FORMAT_LIST</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nSizeOfListEntry</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>nNumListElements</strong> (<em>UINT</em>) &#8211; </li>
+<li><strong>nReserved</strong> (<em>UINT[4]</em>) &#8211; </li>
+<li><strong>FormatInfo</strong> (<em>IMAGE_FORMAT_INFO[nNumListElements]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-uc480.wintypes_linux">
+<span id="documentation-of-uc480-wintypes-linux"></span><h2>Documentation of <a class="reference internal" href="#module-uc480.wintypes_linux" title="uc480.wintypes_linux"><code class="xref py py-mod docutils literal"><span class="pre">uc480.wintypes_linux</span></code></a><a class="headerlink" href="#module-uc480.wintypes_linux" title="Permalink to this headline">¶</a></h2>
+<p>Provides <code class="xref py py-mod docutils literal"><span class="pre">ctypes.wintypes</span></code> identifiers for linux. The <em>wintypes</em> module seems not to be part of the <a class="reference external" href="https://docs.python.org/library/ctypes.html#module-ctypes" title="(in Python v2.7)"><code class="xref py py-mod docutils literal"><span class="pre">ctypes</span></code></a> library under Linux, so I have set up my own.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="uc480.html" title="Thorlabs’ uc480 CCD/CMOS Cameras - uc480"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python Hardware Support 1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="uc480.html" >Thorlabs&#8217; uc480 CCD/CMOS Cameras - <code class="docutils literal"><span class="pre">uc480</span></code></a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010, 2015, Daniel Dietze.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
