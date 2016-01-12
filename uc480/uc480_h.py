@@ -1,7 +1,7 @@
 """
 .. module: uc480.uc480_h
    :platform: Windows, Linux
-.. moduleauthor:: Daniel Dietze <daniel.dietze@berkeley.edu> 
+.. moduleauthor:: Daniel Dietze <daniel.dietze@berkeley.edu>
 
 Thorlabs' uc480 header file translated to python.
 
@@ -21,15 +21,15 @@ Thorlabs' uc480 header file translated to python.
    You should have received a copy of the GNU General Public License
    along with the uc480 python module. If not, see <http://www.gnu.org/licenses/>.
 
-   Copyright 2015 Daniel Dietze <daniel.dietze@berkeley.edu>.   
-""" 
+   Copyright 2015 Daniel Dietze <daniel.dietze@berkeley.edu>.
+"""
 import platform
 import ctypes
 
-if platform.system() == "Linux":
-    import wintypes_linux as wt
-else:
+if platform.system() == "Windows":
     import ctypes.wintypes as wt
+else:
+    import wintypes_linux as wt
 
 #  ----------------------------------------------------------------------------
 #  Color modes
@@ -44,7 +44,7 @@ IS_COLORMODE_CBYCRY       =          4
 #  ----------------------------------------------------------------------------
 IS_SENSOR_INVALID  = 0x0000
 
-#  CMOS sensors 
+#  CMOS sensors
 IS_SENSOR_C0640R13M = 0x0001 #  cmos, 0640x0480, rolling, 1/3", mono,
 IS_SENSOR_C0640R13C = 0x0002 #  cmos, 0640x0480, rolling, 1/3", color,
 IS_SENSOR_C1280R23M = 0x0003 #  cmos, 1280x1024, rolling, 1/1.8", mono,
@@ -116,7 +116,7 @@ IS_SENSOR_C2597R12C = 0x0049 #  cmos, 2592x1944, rolling, 1/2", color, WO board 
 IS_SENSOR_C1280G12M = 0x0050 #  cmos, 1280x1024, global, 1/2", mono
 IS_SENSOR_C1280G12C = 0x0051 #  cmos, 1280x1024, global, 1/2", color
 
-#  CCD sensors 
+#  CCD sensors
 IS_SENSOR_D1024G13M = 0x0080 #  ccd, 1024x0768, global, 1/3", mono,
 IS_SENSOR_D1024G13C = 0x0081 #  ccd, 1024x0768, global, 1/3", color,
 
@@ -330,7 +330,7 @@ IS_INVALID_CAMERA_TYPE        =      180   #  the camera type in the ini file do
 IS_INVALID_HOST_IP_HIBYTE     =      181   #  HIBYTE of host address is invalid
 IS_CM_NOT_SUPP_IN_CURR_DISPLAYMODE = 182   #  color mode is not supported in the current display mode
 IS_NO_IR_FILTER                   =  183
-IS_STARTER_FW_UPLOAD_NEEDED       =  184   #  device starter firmware is not compatible    
+IS_STARTER_FW_UPLOAD_NEEDED       =  184   #  device starter firmware is not compatible
 
 IS_DR_LIBRARY_NOT_FOUND          =       185   #  the DirectRender library could not be found
 IS_DR_DEVICE_OUT_OF_MEMORY       =       186   #  insufficient graphics adapter video memory
@@ -430,7 +430,7 @@ IS_GET_TRIGGER_INPUTS        =       0x8003
 IS_GET_SUPPORTED_TRIGGER_MODE  =     0x8004
 IS_GET_TRIGGER_COUNTER         =     0x8000
 
-#  old defines for compatibility 
+#  old defines for compatibility
 IS_SET_TRIG_OFF            =         0x0000
 IS_SET_TRIG_HI_LO          =         0x0001
 IS_SET_TRIG_LO_HI          =         0x0002
@@ -443,9 +443,9 @@ IS_SET_TRIG_MASK           =         0x0100
 #  New defines
 IS_SET_TRIGGER_CONTINUOUS     =      0x1000
 IS_SET_TRIGGER_OFF            =      IS_SET_TRIG_OFF
-IS_SET_TRIGGER_HI_LO          =      (IS_SET_TRIGGER_CONTINUOUS | IS_SET_TRIG_HI_LO) 
-IS_SET_TRIGGER_LO_HI          =      (IS_SET_TRIGGER_CONTINUOUS | IS_SET_TRIG_LO_HI) 
-IS_SET_TRIGGER_SOFTWARE       =      (IS_SET_TRIGGER_CONTINUOUS | IS_SET_TRIG_SOFTWARE) 
+IS_SET_TRIGGER_HI_LO          =      (IS_SET_TRIGGER_CONTINUOUS | IS_SET_TRIG_HI_LO)
+IS_SET_TRIGGER_LO_HI          =      (IS_SET_TRIGGER_CONTINUOUS | IS_SET_TRIG_LO_HI)
+IS_SET_TRIGGER_SOFTWARE       =      (IS_SET_TRIGGER_CONTINUOUS | IS_SET_TRIG_SOFTWARE)
 IS_SET_TRIGGER_HI_LO_SYNC     =      IS_SET_TRIG_HI_LO_SYNC
 IS_SET_TRIGGER_LO_HI_SYNC     =      IS_SET_TRIG_LO_HI_SYNC
 IS_SET_TRIGGER_PRE_HI_LO      =      (IS_SET_TRIGGER_CONTINUOUS | 0x0040)
@@ -648,7 +648,7 @@ IS_SET_IMAGEPOS_Y_ABS       =        0x8000
 
 #  Valid defines
 
-#  Image 
+#  Image
 IS_AOI_IMAGE_SET_AOI        =        0x0001
 IS_AOI_IMAGE_GET_AOI        =        0x0002
 IS_AOI_IMAGE_SET_POS        =        0x0003
@@ -666,18 +666,18 @@ IS_AOI_IMAGE_GET_POS_Y_ABS  =        0x0014
 IS_AOI_IMAGE_GET_ORIGINAL_AOI =      0x0015
 
 IS_AOI_IMAGE_POS_ABSOLUTE  =         0x10000000
- 
-#  Fast move 
+
+#  Fast move
 IS_AOI_IMAGE_SET_POS_FAST   =        0x0020
 IS_AOI_IMAGE_SET_POS_FAST_SUPPORTED = 0x0021
 
-#  Auto features 
+#  Auto features
 IS_AOI_AUTO_BRIGHTNESS_SET_AOI   =   0x0030
 IS_AOI_AUTO_BRIGHTNESS_GET_AOI   =   0x0031
 IS_AOI_AUTO_WHITEBALANCE_SET_AOI =   0x0032
 IS_AOI_AUTO_WHITEBALANCE_GET_AOI =   0x0033
 
-#  Multi AOI 
+#  Multi AOI
 IS_AOI_MULTI_GET_SUPPORTED_MODES =   0x0100
 IS_AOI_MULTI_SET_AOI             =   0x0200
 IS_AOI_MULTI_GET_AOI             =   0x0400
@@ -686,7 +686,7 @@ IS_AOI_MULTI_MODE_AXES           =   0x0001
 IS_AOI_MULTI_MODE_X_Y_AXES       =   0x0001
 IS_AOI_MULTI_MODE_Y_AXES         =   0x0002
 
-#  AOI sequence 
+#  AOI sequence
 IS_AOI_SEQUENCE_GET_SUPPORTED    =   0x0050
 IS_AOI_SEQUENCE_SET_PARAMS       =   0x0051
 IS_AOI_SEQUENCE_GET_PARAMS       =   0x0052
@@ -1193,12 +1193,12 @@ DR_GET_OVERLAY_DC            =           1
 DR_GET_MAX_OVERLAY_SIZE      =           2
 DR_GET_OVERLAY_KEY_COLOR     =           3
 DR_RELEASE_OVERLAY_DC        =           4
-DR_SHOW_OVERLAY              =           5         
-DR_HIDE_OVERLAY              =           6               
-DR_SET_OVERLAY_SIZE          =           7                       
-DR_SET_OVERLAY_POSITION      =           8    
-DR_SET_OVERLAY_KEY_COLOR     =           9 
-DR_SET_HWND                  =           10 
+DR_SHOW_OVERLAY              =           5
+DR_HIDE_OVERLAY              =           6
+DR_SET_OVERLAY_SIZE          =           7
+DR_SET_OVERLAY_POSITION      =           8
+DR_SET_OVERLAY_KEY_COLOR     =           9
+DR_SET_HWND                  =           10
 DR_ENABLE_SCALING            =           11
 DR_DISABLE_SCALING           =           12
 DR_CLEAR_OVERLAY             =           13
@@ -1399,7 +1399,7 @@ IS_BOARD_TYPE_UC480_USB_LE   =        (IS_INTERFACE_TYPE_USB + 0x02)   #  0x42
 IS_BOARD_TYPE_UC480_USB_XS   =        (IS_INTERFACE_TYPE_USB + 0x03)   #  0x43
 IS_BOARD_TYPE_UC480_USB_ML   =        (IS_INTERFACE_TYPE_USB + 0x05)   #  0x45
 
-IS_BOARD_TYPE_UC480_USB3_CP  =        (IS_INTERFACE_TYPE_USB3 + 0x04)  #  0x64 
+IS_BOARD_TYPE_UC480_USB3_CP  =        (IS_INTERFACE_TYPE_USB3 + 0x04)  #  0x64
 
 IS_BOARD_TYPE_UC480_ETH      =        IS_INTERFACE_TYPE_ETH            #  0x80
 IS_BOARD_TYPE_UC480_ETH_HE   =        IS_BOARD_TYPE_UC480_ETH          #  0x80
@@ -1786,11 +1786,11 @@ IS_INVALID_HCAM = 0
 
 
 class BOARDINFO(ctypes.Structure):
-    """    
+    """
     :var ctypes.c_char[12] SerNo: Serial number of sensor chip.
     :var ctypes.c_char[20] ID: Camera ID.
-    :var ctypes.c_char[10] Version: 
-    :var ctypes.c_char[12] Date: 
+    :var ctypes.c_char[10] Version:
+    :var ctypes.c_char[12] Date:
     :var ctypes.c_ubyte Select:
     :var ctypes.c_ubyte Type:
     :var ctypes.c_char[8] Reserved:
@@ -1815,8 +1815,8 @@ class SENSORINFO(ctypes.Structure):
     """
     :var WORD SensorID:
     :var ctypes.c_char[32] strSensorName:
-    :var BYTE nColorMode: 
-    :var DWORD nMaxWidth: 
+    :var BYTE nColorMode:
+    :var DWORD nMaxWidth:
     :var DWORD nMaxHeight:
     :var BOOL bMasterGain:
     :var BOOL bRGain:
@@ -1844,8 +1844,8 @@ class REVISIONINFO(ctypes.Structure):
     :var WORD Cypress:
     :var WORD Blackfin:
     :var WORD DspFirmware:
-    :var WORD USB_Board: 
-    :var WORD Sensor_Board: 
+    :var WORD USB_Board:
+    :var WORD Sensor_Board:
     :var WORD Processing_Board:
     :var WORD Memory_Board:
     :var WORD Housing:
@@ -1871,7 +1871,7 @@ class REVISIONINFO(ctypes.Structure):
                 ("Housing", wt.WORD),
                 ("Filter", wt.WORD),
                 ("Timing_Board", wt.WORD),
-                
+
                 ("Product", wt.WORD),
                 ("Power_Board", wt.WORD),
                 ("Logic_Board", wt.WORD),
@@ -1898,7 +1898,7 @@ class UC480_CAPTURE_ERROR_INFO(ctypes.Structure):
     :var BYTE[60] reserved:
     :var DWORD[256] adwCapErrCnt_Detail:
     """
-    _fields_ = [("dwCapErrCnt_Total", wt.DWORD), 
+    _fields_ = [("dwCapErrCnt_Total", wt.DWORD),
                 ("reserved", wt.BYTE * 60),
                 ("adwCapErrCnt_Detail", wt.DWORD * 256)]    #: Attributes
 
@@ -1957,25 +1957,25 @@ class UC480_CAMERA_INFO(ctypes.Structure):
 #     reported value of N and call DLL again with an updated array size
 
 # class UC480_CAMERA_LIST(ctypes.Structure):
-    # _fields_ = [("dwCount", wt.ULONG), 
+    # _fields_ = [("dwCount", wt.ULONG),
                 # ("uci", ctypes.POINTER(UC480_CAMERA_INFO))]
 
 def create_camera_list(dwCount):
     """Returns an instance of the UC480_CAMERA_LIST structure having the properly scaled UC480_CAMERA_INFO array.
-    
+
     :param ULONG dwCount: Number of camera info structures requested.
     :returns: UC480_CAMERA_LIST
-    
+
     :var ULONG dwCount: Size of uci.
     :var UC480_CAMERA_INFO[dwCount] uci: List of camera info structures.
-    """    
+    """
     class UC480_CAMERA_LIST(ctypes.Structure):
         _fields_ = [("dwCount", wt.ULONG),
                     ("uci", UC480_CAMERA_INFO * dwCount)]
     a_list = UC480_CAMERA_LIST()
     a_list.dwCount = dwCount
     return a_list
-                
+
 #  ----------------------------------------------------------------------------
 #  the  following defines are the status bits of the dwStatus member of
 #  the UC480_CAMERA_INFO structure
@@ -1988,8 +1988,8 @@ DEVSTS_INCLUDED_STARTER_FIRMWARE_INCOMPATIBLE =  0x00000010
 #  the following macro determines the availability of the camera based
 #  on the status flags
 def IS_CAMERA_AVAILABLE(_s_):
-    return ( (((_s_) & FIRMWARE_DOWNLOAD_NOT_SUPPORTED) == 0) 
-            and (((_s_) & INTERFACE_SPEED_NOT_SUPPORTED)   == 0) 
+    return ( (((_s_) & FIRMWARE_DOWNLOAD_NOT_SUPPORTED) == 0)
+            and (((_s_) & INTERFACE_SPEED_NOT_SUPPORTED)   == 0)
             and (((_s_) & INVALID_SENSOR_DETECTED)         == 0)
             and (((_s_) & AUTHORIZATION_FAILED)            == 0) )
 
@@ -2045,11 +2045,11 @@ class AUTO_WB_STATUS(ctypes.Structure):
     :var AUTO_WB_CHANNNEL_STATUS RedChannel:
     :var AUTO_WB_CHANNNEL_STATUS GreenChannel:
     :var AUTO_WB_CHANNNEL_STATUS BlueChannel:
-    :var DWORD curController:    
+    :var DWORD curController:
     """
-    _fields_ = [("RedChannel", AUTO_WB_CHANNNEL_STATUS), 
-                ("GreenChannel", AUTO_WB_CHANNNEL_STATUS), 
-                ("BlueChannel", AUTO_WB_CHANNNEL_STATUS), 
+    _fields_ = [("RedChannel", AUTO_WB_CHANNNEL_STATUS),
+                ("GreenChannel", AUTO_WB_CHANNNEL_STATUS),
+                ("BlueChannel", AUTO_WB_CHANNNEL_STATUS),
                 ("curController", wt.DWORD)]
 
 class UC480_AUTO_INFO(ctypes.Structure):
@@ -2102,28 +2102,28 @@ class KNEEPOINTARRAY(ctypes.Structure):
 
 class KNEEPOINTINFO(ctypes.Structure):
     """
-    :var ctypes.c_int NumberOfSupportedKneepoints: 
+    :var ctypes.c_int NumberOfSupportedKneepoints:
     :var ctypes.c_int NumberOfUsedKneepoints:
-    :var ctypes.c_double MinValueX: 
-    :var ctypes.c_double MaxValueX: 
-    :var ctypes.c_double MinValueY: 
+    :var ctypes.c_double MinValueX:
+    :var ctypes.c_double MaxValueX:
+    :var ctypes.c_double MinValueY:
     :var ctypes.c_double MaxValueY:
     :var KNEEPOINT[10] DefaultKneepoint:
     :var ctypes.c_int[10] Reserved:
     """
-    _fields_ = [("NumberOfSupportedKneepoints", ctypes.c_int), 
-                ("NumberOfUsedKneepoints", ctypes.c_int), 
-                ("MinValueX", ctypes.c_double), 
-                ("MaxValueX", ctypes.c_double), 
-                ("MinValueY", ctypes.c_double), 
-                ("MaxValueY", ctypes.c_double), 
-                ("DefaultKneepoint", KNEEPOINT * 10), 
+    _fields_ = [("NumberOfSupportedKneepoints", ctypes.c_int),
+                ("NumberOfUsedKneepoints", ctypes.c_int),
+                ("MinValueX", ctypes.c_double),
+                ("MaxValueX", ctypes.c_double),
+                ("MinValueY", ctypes.c_double),
+                ("MaxValueY", ctypes.c_double),
+                ("DefaultKneepoint", KNEEPOINT * 10),
                 ("Reserved", ctypes.c_int * 10)]
-    
 
-IS_SE_STARTER_FW_UPLOAD =   0x00000001 # !< get estimated duration of GigE SE starter firmware upload in milliseconds 
-IS_CP_STARTER_FW_UPLOAD =   0x00000002 # !< get estimated duration of GigE CP starter firmware upload in milliseconds 
-IS_STARTER_FW_UPLOAD    =   0x00000004  # !< get estimated duration of starter firmware upload in milliseconds using hCam to  
+
+IS_SE_STARTER_FW_UPLOAD =   0x00000001 # !< get estimated duration of GigE SE starter firmware upload in milliseconds
+IS_CP_STARTER_FW_UPLOAD =   0x00000002 # !< get estimated duration of GigE CP starter firmware upload in milliseconds
+IS_STARTER_FW_UPLOAD    =   0x00000004  # !< get estimated duration of starter firmware upload in milliseconds using hCam to
 
 class SENSORSCALERINFO(ctypes.Structure):
     """
@@ -2155,7 +2155,7 @@ class UC480TIME(ctypes.Structure):
     :var WORD wSecond:
     :var WORD wMilliseconds:
     :var BYTE[10] byReserved:
-    """    
+    """
     _fields_ = [("wYear", wt.WORD),
                 ("wMonth", wt.WORD),
                 ("wDay", wt.WORD),
@@ -2163,8 +2163,8 @@ class UC480TIME(ctypes.Structure):
                 ("wMinute", wt.WORD),
                 ("wSecond", wt.WORD),
                 ("wMilliseconds", wt.WORD),
-                ("byReserved", wt.BYTE * 10)]   
-             
+                ("byReserved", wt.BYTE * 10)]
+
 
 class UC480IMAGEINFO(ctypes.Structure):
     """
@@ -2237,32 +2237,32 @@ class UC480_ETH_IP_CONFIGURATION(ctypes.Structure):
                 ("reserved", wt.BYTE)]
 
 
-IS_ETH_DEVSTATUS_READY_TO_OPERATE=            0x00000001 # !< device is ready to operate 
-IS_ETH_DEVSTATUS_TESTING_IP_CURRENT=          0x00000002 # !< device is (arp-)probing its current ip 
-IS_ETH_DEVSTATUS_TESTING_IP_PERSISTENT=       0x00000004 # !< device is (arp-)probing its persistent ip 
-IS_ETH_DEVSTATUS_TESTING_IP_RANGE=            0x00000008 # !< device is (arp-)probing the autocfg ip range 
+IS_ETH_DEVSTATUS_READY_TO_OPERATE=            0x00000001 # !< device is ready to operate
+IS_ETH_DEVSTATUS_TESTING_IP_CURRENT=          0x00000002 # !< device is (arp-)probing its current ip
+IS_ETH_DEVSTATUS_TESTING_IP_PERSISTENT=       0x00000004 # !< device is (arp-)probing its persistent ip
+IS_ETH_DEVSTATUS_TESTING_IP_RANGE=            0x00000008 # !< device is (arp-)probing the autocfg ip range
 
-IS_ETH_DEVSTATUS_INAPPLICABLE_IP_CURRENT=     0x00000010 # !< current ip is inapplicable 
-IS_ETH_DEVSTATUS_INAPPLICABLE_IP_PERSISTENT=  0x00000020 # !< persistent ip is inapplicable 
-IS_ETH_DEVSTATUS_INAPPLICABLE_IP_RANGE=       0x00000040 # !< autocfg ip range is inapplicable 
+IS_ETH_DEVSTATUS_INAPPLICABLE_IP_CURRENT=     0x00000010 # !< current ip is inapplicable
+IS_ETH_DEVSTATUS_INAPPLICABLE_IP_PERSISTENT=  0x00000020 # !< persistent ip is inapplicable
+IS_ETH_DEVSTATUS_INAPPLICABLE_IP_RANGE=       0x00000040 # !< autocfg ip range is inapplicable
 
-IS_ETH_DEVSTATUS_UNPAIRED=                    0x00000100 # !< device is unpaired 
-IS_ETH_DEVSTATUS_PAIRING_IN_PROGRESS=         0x00000200 # !< device is being paired 
-IS_ETH_DEVSTATUS_PAIRED=                      0x00000400 # !< device is paired 
+IS_ETH_DEVSTATUS_UNPAIRED=                    0x00000100 # !< device is unpaired
+IS_ETH_DEVSTATUS_PAIRING_IN_PROGRESS=         0x00000200 # !< device is being paired
+IS_ETH_DEVSTATUS_PAIRED=                      0x00000400 # !< device is paired
 
-IS_ETH_DEVSTATUS_FORCE_100MBPS=               0x00001000 # !< device phy is configured to 100 Mbps 
-IS_ETH_DEVSTATUS_NO_COMPORT=                  0x00002000 # !< device does not support uc480 eth comport 
+IS_ETH_DEVSTATUS_FORCE_100MBPS=               0x00001000 # !< device phy is configured to 100 Mbps
+IS_ETH_DEVSTATUS_NO_COMPORT=                  0x00002000 # !< device does not support uc480 eth comport
 
-IS_ETH_DEVSTATUS_RECEIVING_FW_STARTER=        0x00010000 # !< device is receiving the starter firmware 
-IS_ETH_DEVSTATUS_RECEIVING_FW_RUNTIME=        0x00020000 # !< device is receiving the runtime firmware 
-IS_ETH_DEVSTATUS_INAPPLICABLE_FW_RUNTIME=     0x00040000 # !< runtime firmware is inapplicable 
-IS_ETH_DEVSTATUS_INAPPLICABLE_FW_STARTER=     0x00080000 # !< starter firmware is inapplicable 
+IS_ETH_DEVSTATUS_RECEIVING_FW_STARTER=        0x00010000 # !< device is receiving the starter firmware
+IS_ETH_DEVSTATUS_RECEIVING_FW_RUNTIME=        0x00020000 # !< device is receiving the runtime firmware
+IS_ETH_DEVSTATUS_INAPPLICABLE_FW_RUNTIME=     0x00040000 # !< runtime firmware is inapplicable
+IS_ETH_DEVSTATUS_INAPPLICABLE_FW_STARTER=     0x00080000 # !< starter firmware is inapplicable
 
-IS_ETH_DEVSTATUS_REBOOTING_FW_RUNTIME=        0x00100000 # !< device is rebooting to runtime firmware 
-IS_ETH_DEVSTATUS_REBOOTING_FW_STARTER=        0x00200000 # !< device is rebooting to starter firmware 
-IS_ETH_DEVSTATUS_REBOOTING_FW_FAILSAFE=       0x00400000 # !< device is rebooting to failsafe firmware 
+IS_ETH_DEVSTATUS_REBOOTING_FW_RUNTIME=        0x00100000 # !< device is rebooting to runtime firmware
+IS_ETH_DEVSTATUS_REBOOTING_FW_STARTER=        0x00200000 # !< device is rebooting to starter firmware
+IS_ETH_DEVSTATUS_REBOOTING_FW_FAILSAFE=       0x00400000 # !< device is rebooting to failsafe firmware
 
-IS_ETH_DEVSTATUS_RUNTIME_FW_ERR0=             0x80000000 # !< checksum error runtime firmware 
+IS_ETH_DEVSTATUS_RUNTIME_FW_ERR0=             0x80000000 # !< checksum error runtime firmware
 
 #  heartbeat info transmitted periodically by a device
 #  contained in UC480_ETH_DEVICE_INFO
@@ -2318,32 +2318,32 @@ class UC480_ETH_DEVICE_INFO_HEARTBEAT(ctypes.Structure):
                 ("reserved_5", wt.BYTE * 84),
                 ("reserved_6", wt.BYTE * 64)]
 
-IS_ETH_CTRLSTATUS_AVAILABLE=              0x00000001 # !< device is available TO US 
-IS_ETH_CTRLSTATUS_ACCESSIBLE1=            0x00000002 # !< device is accessible BY US, i.e. directly 'unicastable' 
-IS_ETH_CTRLSTATUS_ACCESSIBLE2=            0x00000004 # !< device is accessible BY US, i.e. not on persistent ip and adapters ip autocfg range is valid 
+IS_ETH_CTRLSTATUS_AVAILABLE=              0x00000001 # !< device is available TO US
+IS_ETH_CTRLSTATUS_ACCESSIBLE1=            0x00000002 # !< device is accessible BY US, i.e. directly 'unicastable'
+IS_ETH_CTRLSTATUS_ACCESSIBLE2=            0x00000004 # !< device is accessible BY US, i.e. not on persistent ip and adapters ip autocfg range is valid
 
-IS_ETH_CTRLSTATUS_PERSISTENT_IP_USED=     0x00000010 # !< device is running on persistent ip configuration 
-IS_ETH_CTRLSTATUS_COMPATIBLE=             0x00000020 # !< device is compatible TO US 
-IS_ETH_CTRLSTATUS_ADAPTER_ON_DHCP=        0x00000040 # !< adapter is configured to use dhcp 
-IS_ETH_CTRLSTATUS_ADAPTER_SETUP_OK =      0x00000080 # !< adapter's setup is ok with respect to uc480 needs 
+IS_ETH_CTRLSTATUS_PERSISTENT_IP_USED=     0x00000010 # !< device is running on persistent ip configuration
+IS_ETH_CTRLSTATUS_COMPATIBLE=             0x00000020 # !< device is compatible TO US
+IS_ETH_CTRLSTATUS_ADAPTER_ON_DHCP=        0x00000040 # !< adapter is configured to use dhcp
+IS_ETH_CTRLSTATUS_ADAPTER_SETUP_OK =      0x00000080 # !< adapter's setup is ok with respect to uc480 needs
 
-IS_ETH_CTRLSTATUS_UNPAIRING_IN_PROGRESS=  0x00000100 # !< device is being unpaired FROM US 
-IS_ETH_CTRLSTATUS_PAIRING_IN_PROGRESS=    0x00000200 # !< device is being paired TO US 
+IS_ETH_CTRLSTATUS_UNPAIRING_IN_PROGRESS=  0x00000100 # !< device is being unpaired FROM US
+IS_ETH_CTRLSTATUS_PAIRING_IN_PROGRESS=    0x00000200 # !< device is being paired TO US
 
-IS_ETH_CTRLSTATUS_PAIRED=                 0x00001000 # !< device is paired TO US 
-IS_ETH_CTRLSTATUS_OPENED =                0x00004000 # !< device is opened BY SELF  
+IS_ETH_CTRLSTATUS_PAIRED=                 0x00001000 # !< device is paired TO US
+IS_ETH_CTRLSTATUS_OPENED =                0x00004000 # !< device is opened BY SELF
 
-IS_ETH_CTRLSTATUS_FW_UPLOAD_STARTER=      0x00010000 # !< device is receiving the starter firmware 
-IS_ETH_CTRLSTATUS_FW_UPLOAD_RUNTIME=      0x00020000 # !< device is receiving the runtime firmware 
+IS_ETH_CTRLSTATUS_FW_UPLOAD_STARTER=      0x00010000 # !< device is receiving the starter firmware
+IS_ETH_CTRLSTATUS_FW_UPLOAD_RUNTIME=      0x00020000 # !< device is receiving the runtime firmware
 
-IS_ETH_CTRLSTATUS_REBOOTING=              0x00100000 # !< device is rebooting 
+IS_ETH_CTRLSTATUS_REBOOTING=              0x00100000 # !< device is rebooting
 
-IS_ETH_CTRLSTATUS_BOOTBOOST_ENABLED =     0x01000000 # !< boot-boosting is enabled for this device 
-IS_ETH_CTRLSTATUS_BOOTBOOST_ACTIVE =      0x02000000 # !< boot-boosting is active for this device 
-IS_ETH_CTRLSTATUS_INITIALIZED=            0x08000000 # !< device object is initialized 
+IS_ETH_CTRLSTATUS_BOOTBOOST_ENABLED =     0x01000000 # !< boot-boosting is enabled for this device
+IS_ETH_CTRLSTATUS_BOOTBOOST_ACTIVE =      0x02000000 # !< boot-boosting is active for this device
+IS_ETH_CTRLSTATUS_INITIALIZED=            0x08000000 # !< device object is initialized
 
-IS_ETH_CTRLSTATUS_TO_BE_DELETED=          0x40000000 # !< device object is being deleted 
-IS_ETH_CTRLSTATUS_TO_BE_REMOVED=          0x80000000 # !< device object is being removed 
+IS_ETH_CTRLSTATUS_TO_BE_DELETED=          0x40000000 # !< device object is being deleted
+IS_ETH_CTRLSTATUS_TO_BE_REMOVED=          0x80000000 # !< device object is being removed
 
 class UC480_ETH_DEVICE_INFO_CONTROL(ctypes.Structure):
     """
@@ -2376,20 +2376,20 @@ class UC480_ETH_AUTOCFG_IP_SETUP(ctypes.Structure):
                 ("reserved", wt.BYTE * 4)]
 
 #  values for incoming packets filter setup
-IS_ETH_PCKTFLT_PASSALL=       0  # !< pass all packets to OS 
-IS_ETH_PCKTFLT_BLOCKUEGET=    1  # !< block UEGET packets to the OS 
-IS_ETH_PCKTFLT_BLOCKALL=      2  # !< block all packets to the OS 
+IS_ETH_PCKTFLT_PASSALL=       0  # !< pass all packets to OS
+IS_ETH_PCKTFLT_BLOCKUEGET=    1  # !< block UEGET packets to the OS
+IS_ETH_PCKTFLT_BLOCKALL=      2  # !< block all packets to the OS
 
 #  values for link speed setup
-IS_ETH_LINKSPEED_100MB=       100    # !< 100 MBits 
-IS_ETH_LINKSPEED_1000MB=      1000    # !< 1000 MBits 
+IS_ETH_LINKSPEED_100MB=       100    # !< 100 MBits
+IS_ETH_LINKSPEED_1000MB=      1000    # !< 1000 MBits
 
 #  control info for a device's network adapter
 #  contained in UC480_ETH_DEVICE_INFO
 class UC480_ETH_ADAPTER_INFO(ctypes.Structure):
     """
     :var DWORD dwAdapterID:
-    :var DWORD dwDeviceLinkspeed: 
+    :var DWORD dwDeviceLinkspeed:
     :var UC480_ETH_ETHERNET_CONFIGURATION ethcfg:
     :var BYTE[2] reserved_2:
     :var BOOL bIsEnabledDHCP:
@@ -2450,12 +2450,12 @@ class UC480_COMPORT_CONFIGURATION(ctypes.Structure):
 class IS_DEVICE_INFO_HEARTBEAT(ctypes.Structure):
     """
     :var BYTE[24] reserved_1:
-    :var DWORD dwRuntimeFirmwareVersion: 
+    :var DWORD dwRuntimeFirmwareVersion:
     :var BYTE[8] reserved_2:
-    :var WORD wTemperature: 
-    :var WORD wLinkSpeed_Mb:  
+    :var WORD wTemperature:
+    :var WORD wLinkSpeed_Mb:
     :var BYTE[6] reserved_3:
-    :var WORD wComportOffset:  
+    :var WORD wComportOffset:
     :var BYTE[200] reserved:
     """
     _fields_ = [("reserved_1", wt.BYTE * 24),
@@ -2497,11 +2497,11 @@ class OPENGL_DISPLAY(ctypes.Structure):
 
 IMGFRMT_CMD_GET_NUM_ENTRIES              = 1  #  Get the number of supported image formats.
                                          #    pParam hast to be a Pointer to IS_U32. If  -1 is reported, the device
-                                         #    supports continuous AOI settings (maybe with fixed increments)         
-IMGFRMT_CMD_GET_LIST                     = 2  #  Get a array of IMAGE_FORMAT_ELEMENTs.                                  
-IMGFRMT_CMD_SET_FORMAT                   = 3  #  Select a image format                                                  
-IMGFRMT_CMD_GET_ARBITRARY_AOI_SUPPORTED  = 4  #  Does the device supports the setting of an arbitrary AOI.              
-IMGFRMT_CMD_GET_FORMAT_INFO              = 5  #  Get IMAGE_FORMAT_INFO for a given formatID                             
+                                         #    supports continuous AOI settings (maybe with fixed increments)
+IMGFRMT_CMD_GET_LIST                     = 2  #  Get a array of IMAGE_FORMAT_ELEMENTs.
+IMGFRMT_CMD_SET_FORMAT                   = 3  #  Select a image format
+IMGFRMT_CMD_GET_ARBITRARY_AOI_SUPPORTED  = 4  #  Does the device supports the setting of an arbitrary AOI.
+IMGFRMT_CMD_GET_FORMAT_INFO              = 5  #  Get IMAGE_FORMAT_INFO for a given formatID
 
 #  no trigger
 CAPTMODE_FREERUN                    = 0x00000001
@@ -2542,45 +2542,45 @@ class IMAGE_FORMAT_INFO(ctypes.Structure):
                 ("nReserved", wt.UINT * 22)]
 
 # class IMAGE_FORMAT_LIST(ctypes.Structure):
-    # _fields_ = [("nSizeOfListEntry", wt.UINT), 
+    # _fields_ = [("nSizeOfListEntry", wt.UINT),
                 # ("nNumListElements", wt.UINT),
                 # ("nReserved", wt.UINT * 4),
                 # ("FormatInfo", ctypes.POINTER(IMAGE_FORMAT_INFO))]
 def create_image_format_list(nNumListElements):
     """Returns an instance of the IMAGE_FORMAT_LIST structure having the properly scaled *FormatInfo* array.
-    
+
     :param ULONG nNumListElements: Number of format info structures requested.
     :returns: IMAGE_FORMAT_LIST
-    
+
     :var UINT nSizeOfListEntry:
     :var UINT nNumListElements:
     :var UINT[4] nReserved:
     :var IMAGE_FORMAT_INFO[nNumListElements] FormatInfo:
     """
     class IMAGE_FORMAT_LIST(ctypes.Structure):
-        _fields_ = [("nSizeOfListEntry", wt.UINT), 
+        _fields_ = [("nSizeOfListEntry", wt.UINT),
                     ("nNumListElements", wt.UINT),
                     ("nReserved", wt.UINT * 4),
                     ("FormatInfo", IMAGE_FORMAT_INFO * nNumListElements)]
     a_list = IMAGE_FORMAT_LIST()
     a_list.nNumListElements = nNumListElements
     return a_list
-    
+
 FDT_CAP_INVALID             = 0
-FDT_CAP_SUPPORTED           = 0x00000001 #  Face detection supported.                                      
-FDT_CAP_SEARCH_ANGLE        = 0x00000002 #  Search angle.                                                  
-FDT_CAP_SEARCH_AOI          = 0x00000004 #  Search AOI.                                                    
-FDT_CAP_INFO_POSX           = 0x00000010 #  Query horizontal position (center) of detected face.           
-FDT_CAP_INFO_POSY           = 0x00000020 #  Query vertical position(center) of detected face.              
-FDT_CAP_INFO_WIDTH          = 0x00000040 #  Query width of detected face.                                  
-FDT_CAP_INFO_HEIGHT         = 0x00000080 #  Query height of detected face.                                 
-FDT_CAP_INFO_ANGLE          = 0x00000100 #  Query angle of detected face.                                  
-FDT_CAP_INFO_POSTURE        = 0x00000200 #  Query posture of detected face.                                
-FDT_CAP_INFO_FACENUMBER     = 0x00000400 #  Query number of detected faces.                                
-FDT_CAP_INFO_OVL            = 0x00000800 #  Overlay: Mark the detected face in the image.                  
-FDT_CAP_INFO_NUM_OVL        = 0x00001000 #  Overlay: Limit the maximum number of overlays in one image.    
-FDT_CAP_INFO_OVL_LINEWIDTH  = 0x00002000 #  Overlay line width.                                            
- 
+FDT_CAP_SUPPORTED           = 0x00000001 #  Face detection supported.
+FDT_CAP_SEARCH_ANGLE        = 0x00000002 #  Search angle.
+FDT_CAP_SEARCH_AOI          = 0x00000004 #  Search AOI.
+FDT_CAP_INFO_POSX           = 0x00000010 #  Query horizontal position (center) of detected face.
+FDT_CAP_INFO_POSY           = 0x00000020 #  Query vertical position(center) of detected face.
+FDT_CAP_INFO_WIDTH          = 0x00000040 #  Query width of detected face.
+FDT_CAP_INFO_HEIGHT         = 0x00000080 #  Query height of detected face.
+FDT_CAP_INFO_ANGLE          = 0x00000100 #  Query angle of detected face.
+FDT_CAP_INFO_POSTURE        = 0x00000200 #  Query posture of detected face.
+FDT_CAP_INFO_FACENUMBER     = 0x00000400 #  Query number of detected faces.
+FDT_CAP_INFO_OVL            = 0x00000800 #  Overlay: Mark the detected face in the image.
+FDT_CAP_INFO_NUM_OVL        = 0x00001000 #  Overlay: Limit the maximum number of overlays in one image.
+FDT_CAP_INFO_OVL_LINEWIDTH  = 0x00002000 #  Overlay line width.
+
 class FDT_INFO_EL(ctypes.Structure):
     """
     :var INT nFacePosX:
@@ -2611,10 +2611,10 @@ class FDT_INFO_EL(ctypes.Structure):
                 # ("FaceEntry", ctypes.POINTER(FDT_INFO_EL))]
 def create_fdt_info_list(nNumListElements):
     """Returns an instance of the FDT_INFO_LIST structure having the properly scaled *FaceEntry* array.
-    
+
     :param ULONG nNumListElements: Number of face entry structures requested.
     :returns: FDT_INFO_LIST
-    
+
     :var UINT nSizeOfListEntry:
     :var UINT nNumDetectedFaces:
     :var UINT nNumListElements:
@@ -2626,68 +2626,68 @@ def create_fdt_info_list(nNumListElements):
                     ("nNumDetectedFaces", wt.UINT),
                     ("nNumListElements", wt.UINT),
                     ("nReserved", wt.UINT * 4),
-                    ("FaceEntry", FDT_INFO_EL * nNumListElements)]  
+                    ("FaceEntry", FDT_INFO_EL * nNumListElements)]
     a_list = FDT_INFO_LIST()
     a_list.nNumListElements = nNumListElements
     return a_list
-    
-FDT_CMD_GET_CAPABILITIES        = 0    #  Get the capabilities for face detection.                     
-FDT_CMD_SET_DISABLE             = 1    #  Disable face detection.                                      
-FDT_CMD_SET_ENABLE              = 2    #  Enable face detection.                                       
-FDT_CMD_SET_SEARCH_ANGLE        = 3    #  Set the search angle.                                        
-FDT_CMD_GET_SEARCH_ANGLE        = 4    #  Get the search angle parameter.                              
-FDT_CMD_SET_SEARCH_ANGLE_ENABLE = 5    #  Enable search angle.                                         
-FDT_CMD_SET_SEARCH_ANGLE_DISABLE= 6    #  Enable search angle.                                         
-FDT_CMD_GET_SEARCH_ANGLE_ENABLE = 7    #  Get the current setting of search angle enable.              
-FDT_CMD_SET_SEARCH_AOI          = 8    #  Set the search AOI.                                          
-FDT_CMD_GET_SEARCH_AOI          = 9    #  Get the search AOI.                                          
-FDT_CMD_GET_FACE_LIST           = 10   #  Get a list with detected faces.                              
-FDT_CMD_GET_NUMBER_FACES        = 11   #  Get the number of detected faces.                            
-FDT_CMD_SET_SUSPEND             = 12   #  Keep the face detection result of that moment.               
-FDT_CMD_SET_RESUME              = 13   #  Continue with the face detection.                            
-FDT_CMD_GET_MAX_NUM_FACES       = 14   #  Get the maximum number of faces that can be detected once.   
-FDT_CMD_SET_INFO_MAX_NUM_OVL    = 15   #  Set the maximum number of overlays displayed.                
-FDT_CMD_GET_INFO_MAX_NUM_OVL    = 16   #  Get the setting 'maximum number of overlays displayed'.      
-FDT_CMD_SET_INFO_OVL_LINE_WIDTH = 17   #  Set the overlay line width.                                  
-FDT_CMD_GET_INFO_OVL_LINE_WIDTH = 18   #  Get the overlay line width.                                  
-FDT_CMD_GET_ENABLE              = 19   #  Face detection enabled?.                                     
-FDT_CMD_GET_SUSPEND             = 20    #  Face detection suspended?.                                   
+
+FDT_CMD_GET_CAPABILITIES        = 0    #  Get the capabilities for face detection.
+FDT_CMD_SET_DISABLE             = 1    #  Disable face detection.
+FDT_CMD_SET_ENABLE              = 2    #  Enable face detection.
+FDT_CMD_SET_SEARCH_ANGLE        = 3    #  Set the search angle.
+FDT_CMD_GET_SEARCH_ANGLE        = 4    #  Get the search angle parameter.
+FDT_CMD_SET_SEARCH_ANGLE_ENABLE = 5    #  Enable search angle.
+FDT_CMD_SET_SEARCH_ANGLE_DISABLE= 6    #  Enable search angle.
+FDT_CMD_GET_SEARCH_ANGLE_ENABLE = 7    #  Get the current setting of search angle enable.
+FDT_CMD_SET_SEARCH_AOI          = 8    #  Set the search AOI.
+FDT_CMD_GET_SEARCH_AOI          = 9    #  Get the search AOI.
+FDT_CMD_GET_FACE_LIST           = 10   #  Get a list with detected faces.
+FDT_CMD_GET_NUMBER_FACES        = 11   #  Get the number of detected faces.
+FDT_CMD_SET_SUSPEND             = 12   #  Keep the face detection result of that moment.
+FDT_CMD_SET_RESUME              = 13   #  Continue with the face detection.
+FDT_CMD_GET_MAX_NUM_FACES       = 14   #  Get the maximum number of faces that can be detected once.
+FDT_CMD_SET_INFO_MAX_NUM_OVL    = 15   #  Set the maximum number of overlays displayed.
+FDT_CMD_GET_INFO_MAX_NUM_OVL    = 16   #  Get the setting 'maximum number of overlays displayed'.
+FDT_CMD_SET_INFO_OVL_LINE_WIDTH = 17   #  Set the overlay line width.
+FDT_CMD_GET_INFO_OVL_LINE_WIDTH = 18   #  Get the overlay line width.
+FDT_CMD_GET_ENABLE              = 19   #  Face detection enabled?.
+FDT_CMD_GET_SUSPEND             = 20    #  Face detection suspended?.
 
 FOC_CAP_INVALID             = 0
-FOC_CAP_AUTOFOCUS_SUPPORTED = 0x00000001   #  Auto focus supported.                                    
-FOC_CAP_MANUAL_SUPPORTED    = 0x00000002   #  Manual focus supported.                                  
-FOC_CAP_GET_DISTANCE        = 0x00000004   #  Support for query the distance of the focused object.    
-FOC_CAP_SET_AUTOFOCUS_RANGE = 0x00000008    #  Support for setting focus ranges.                        
+FOC_CAP_AUTOFOCUS_SUPPORTED = 0x00000001   #  Auto focus supported.
+FOC_CAP_MANUAL_SUPPORTED    = 0x00000002   #  Manual focus supported.
+FOC_CAP_GET_DISTANCE        = 0x00000004   #  Support for query the distance of the focused object.
+FOC_CAP_SET_AUTOFOCUS_RANGE = 0x00000008    #  Support for setting focus ranges.
 
-FOC_RANGE_NORMAL            = 0x00000001   #  Normal focus range(without Macro).   
-FOC_RANGE_ALLRANGE          = 0x00000002   #  Allrange (macro to Infinity).        
-FOC_RANGE_MACRO             = 0x00000004    #  Macro (only macro).                  
+FOC_RANGE_NORMAL            = 0x00000001   #  Normal focus range(without Macro).
+FOC_RANGE_ALLRANGE          = 0x00000002   #  Allrange (macro to Infinity).
+FOC_RANGE_MACRO             = 0x00000004    #  Macro (only macro).
 
-FOC_CMD_GET_CAPABILITIES        = 0   #  Get focus capabilities.                      
-FOC_CMD_SET_DISABLE_AUTOFOCUS   = 1    #  Disable autofocus.                           
-FOC_CMD_SET_ENABLE_AUTOFOCUS    = 2    #  Enable autofocus.                            
-FOC_CMD_GET_AUTOFOCUS_ENABLE    = 3    #  Autofocus enabled?.                          
-FOC_CMD_SET_AUTOFOCUS_RANGE     = 4    #  Preset autofocus range.                      
-FOC_CMD_GET_AUTOFOCUS_RANGE     = 5    #  Get preset of autofocus range.               
-FOC_CMD_GET_DISTANCE            = 6    #  Get distance to focused object.              
-FOC_CMD_SET_MANUAL_FOCUS        = 7    #  Set manual focus.                            
-FOC_CMD_GET_MANUAL_FOCUS        = 8    #  Get the value for manual focus.              
-FOC_CMD_GET_MANUAL_FOCUS_MIN    = 9    #  Get the minimum manual focus value.          
-FOC_CMD_GET_MANUAL_FOCUS_MAX    = 10   #  Get the maximum manual focus value.          
-FOC_CMD_GET_MANUAL_FOCUS_INC    = 11    #  Get the increment of the manual focus value. 
+FOC_CMD_GET_CAPABILITIES        = 0   #  Get focus capabilities.
+FOC_CMD_SET_DISABLE_AUTOFOCUS   = 1    #  Disable autofocus.
+FOC_CMD_SET_ENABLE_AUTOFOCUS    = 2    #  Enable autofocus.
+FOC_CMD_GET_AUTOFOCUS_ENABLE    = 3    #  Autofocus enabled?.
+FOC_CMD_SET_AUTOFOCUS_RANGE     = 4    #  Preset autofocus range.
+FOC_CMD_GET_AUTOFOCUS_RANGE     = 5    #  Get preset of autofocus range.
+FOC_CMD_GET_DISTANCE            = 6    #  Get distance to focused object.
+FOC_CMD_SET_MANUAL_FOCUS        = 7    #  Set manual focus.
+FOC_CMD_GET_MANUAL_FOCUS        = 8    #  Get the value for manual focus.
+FOC_CMD_GET_MANUAL_FOCUS_MIN    = 9    #  Get the minimum manual focus value.
+FOC_CMD_GET_MANUAL_FOCUS_MAX    = 10   #  Get the maximum manual focus value.
+FOC_CMD_GET_MANUAL_FOCUS_INC    = 11    #  Get the increment of the manual focus value.
 
 IMGSTAB_CAP_INVALID                         = 0
-IMGSTAB_CAP_IMAGE_STABILIZATION_SUPPORTED   = 0x00000001    #  Image stabilization supported. 
+IMGSTAB_CAP_IMAGE_STABILIZATION_SUPPORTED   = 0x00000001    #  Image stabilization supported.
 
-IMGSTAB_CMD_GET_CAPABILITIES        = 0    #  Get the capabilities for image stabilization.    
-IMGSTAB_CMD_SET_DISABLE                 = 1    #  Disable image stabilization.                     
-IMGSTAB_CMD_SET_ENABLE                  = 2    #  Enable image stabilization.                      
-IMGSTAB_CMD_GET_ENABLE              = 3     #  Image stabilization enabled?                     
+IMGSTAB_CMD_GET_CAPABILITIES        = 0    #  Get the capabilities for image stabilization.
+IMGSTAB_CMD_SET_DISABLE                 = 1    #  Disable image stabilization.
+IMGSTAB_CMD_SET_ENABLE                  = 2    #  Enable image stabilization.
+IMGSTAB_CMD_GET_ENABLE              = 3     #  Image stabilization enabled?
 
-SCENE_CMD_GET_SUPPORTED_PRESETS = 1#  Get the supported scene presets      
-SCENE_CMD_SET_PRESET            = 2#  Set the scene preset                 
-SCENE_CMD_GET_PRESET            = 3#  Get the current sensor scene preset  
-SCENE_CMD_GET_DEFAULT_PRESET    = 4 #  Get the default sensor scene preset  
+SCENE_CMD_GET_SUPPORTED_PRESETS = 1#  Get the supported scene presets
+SCENE_CMD_SET_PRESET            = 2#  Set the scene preset
+SCENE_CMD_GET_PRESET            = 3#  Get the current sensor scene preset
+SCENE_CMD_GET_DEFAULT_PRESET    = 4 #  Get the default sensor scene preset
 
 SCENE_INVALID             = 0
 SCENE_SENSOR_AUTOMATIC    = 0x00000001
@@ -2698,33 +2698,33 @@ SCENE_SENSOR_NIGHT        = 0x00000010
 SCENE_SENSOR_SPORTS       = 0x00000040
 SCENE_SENSOR_LANDSCAPE    = 0x00000080
 
-ZOOM_CMD_GET_CAPABILITIES               = 0#  Get the zoom capabilities. 
-ZOOM_CMD_DIGITAL_GET_NUM_LIST_ENTRIES   = 1#  Get the number of list entries. 
-ZOOM_CMD_DIGITAL_GET_LIST               = 2#  Get a list of supported zoom factors. 
-ZOOM_CMD_DIGITAL_SET_VALUE              = 3#  Set the digital zoom factor zoom factors. 
-ZOOM_CMD_DIGITAL_GET_VALUE              = 4 #  Get a current digital zoom factor. 
+ZOOM_CMD_GET_CAPABILITIES               = 0#  Get the zoom capabilities.
+ZOOM_CMD_DIGITAL_GET_NUM_LIST_ENTRIES   = 1#  Get the number of list entries.
+ZOOM_CMD_DIGITAL_GET_LIST               = 2#  Get a list of supported zoom factors.
+ZOOM_CMD_DIGITAL_SET_VALUE              = 3#  Set the digital zoom factor zoom factors.
+ZOOM_CMD_DIGITAL_GET_VALUE              = 4 #  Get a current digital zoom factor.
 
 ZOOM_CAP_INVALID        = 0
 ZOOM_CAP_DIGITAL_ZOOM   = 0x00001
 
-SHARPNESS_CMD_GET_CAPABILITIES          = 0 #  Get the sharpness capabilities 
-SHARPNESS_CMD_GET_VALUE                 = 1 #  Get the current sharpness value 
-SHARPNESS_CMD_GET_MIN_VALUE             = 2 #  Get the minimum sharpness value 
-SHARPNESS_CMD_GET_MAX_VALUE             = 3 #  Get the maximum sharpness value 
-SHARPNESS_CMD_GET_INCREMENT             = 4 #  Get the sharpness increment 
-SHARPNESS_CMD_GET_DEFAULT_VALUE         = 5 #  Get the default sharpness value 
-SHARPNESS_CMD_SET_VALUE                 = 6  #  Set the sharpness value 
+SHARPNESS_CMD_GET_CAPABILITIES          = 0 #  Get the sharpness capabilities
+SHARPNESS_CMD_GET_VALUE                 = 1 #  Get the current sharpness value
+SHARPNESS_CMD_GET_MIN_VALUE             = 2 #  Get the minimum sharpness value
+SHARPNESS_CMD_GET_MAX_VALUE             = 3 #  Get the maximum sharpness value
+SHARPNESS_CMD_GET_INCREMENT             = 4 #  Get the sharpness increment
+SHARPNESS_CMD_GET_DEFAULT_VALUE         = 5 #  Get the default sharpness value
+SHARPNESS_CMD_SET_VALUE                 = 6  #  Set the sharpness value
 
 SHARPNESS_CAP_INVALID                   = 0x0000
 SHARPNESS_CAP_SHARPNESS_SUPPORTED       = 0x0001
 
-SATURATION_CMD_GET_CAPABILITIES         = 0 #  Get the saturation capabilities 
-SATURATION_CMD_GET_VALUE                = 1 #  Get the current saturation value 
-SATURATION_CMD_GET_MIN_VALUE            = 2 #  Get the minimum saturation value 
-SATURATION_CMD_GET_MAX_VALUE            = 3 #  Get the maximum saturation value 
-SATURATION_CMD_GET_INCREMENT            = 4 #  Get the saturation increment 
-SATURATION_CMD_GET_DEFAULT              = 5 #  Get the default saturation value 
-SATURATION_CMD_SET_VALUE                = 6  #  Set the saturation value 
+SATURATION_CMD_GET_CAPABILITIES         = 0 #  Get the saturation capabilities
+SATURATION_CMD_GET_VALUE                = 1 #  Get the current saturation value
+SATURATION_CMD_GET_MIN_VALUE            = 2 #  Get the minimum saturation value
+SATURATION_CMD_GET_MAX_VALUE            = 3 #  Get the maximum saturation value
+SATURATION_CMD_GET_INCREMENT            = 4 #  Get the saturation increment
+SATURATION_CMD_GET_DEFAULT              = 5 #  Get the default saturation value
+SATURATION_CMD_SET_VALUE                = 6  #  Set the saturation value
 
 
 SATURATION_CAP_INVALID                  = 0x0000
@@ -2736,16 +2736,16 @@ TRIGGER_DEBOUNCE_MODE_RISING_EDGE       = 0x0002
 TRIGGER_DEBOUNCE_MODE_BOTH_EDGES        = 0x0004
 TRIGGER_DEBOUNCE_MODE_AUTOMATIC         = 0x0008
 
-TRIGGER_DEBOUNCE_CMD_SET_MODE                   = 0 #  Set a new trigger debounce mode 
-TRIGGER_DEBOUNCE_CMD_SET_DELAY_TIME             = 1 #  Set a new trigger debounce delay time 
-TRIGGER_DEBOUNCE_CMD_GET_SUPPORTED_MODES        = 2 #  Get the supported modes 
-TRIGGER_DEBOUNCE_CMD_GET_MODE                   = 3 #  Get the current trigger debounce mode 
-TRIGGER_DEBOUNCE_CMD_GET_DELAY_TIME             = 4 #  Get the current trigger debounce delay time 
-TRIGGER_DEBOUNCE_CMD_GET_DELAY_TIME_MIN         = 5 #  Get the minimum value for the trigger debounce delay time 
-TRIGGER_DEBOUNCE_CMD_GET_DELAY_TIME_MAX         = 6 #  Get the maximum value for the trigger debounce delay time 
-TRIGGER_DEBOUNCE_CMD_GET_DELAY_TIME_INC         = 7 #  Get the increment of the trigger debounce delay time 
-TRIGGER_DEBOUNCE_CMD_GET_MODE_DEFAULT           = 8 #  Get the default trigger debounce mode 
-TRIGGER_DEBOUNCE_CMD_GET_DELAY_TIME_DEFAULT     = 9 #  Get the default trigger debounce delay time 
+TRIGGER_DEBOUNCE_CMD_SET_MODE                   = 0 #  Set a new trigger debounce mode
+TRIGGER_DEBOUNCE_CMD_SET_DELAY_TIME             = 1 #  Set a new trigger debounce delay time
+TRIGGER_DEBOUNCE_CMD_GET_SUPPORTED_MODES        = 2 #  Get the supported modes
+TRIGGER_DEBOUNCE_CMD_GET_MODE                   = 3 #  Get the current trigger debounce mode
+TRIGGER_DEBOUNCE_CMD_GET_DELAY_TIME             = 4 #  Get the current trigger debounce delay time
+TRIGGER_DEBOUNCE_CMD_GET_DELAY_TIME_MIN         = 5 #  Get the minimum value for the trigger debounce delay time
+TRIGGER_DEBOUNCE_CMD_GET_DELAY_TIME_MAX         = 6 #  Get the maximum value for the trigger debounce delay time
+TRIGGER_DEBOUNCE_CMD_GET_DELAY_TIME_INC         = 7 #  Get the increment of the trigger debounce delay time
+TRIGGER_DEBOUNCE_CMD_GET_MODE_DEFAULT           = 8 #  Get the default trigger debounce mode
+TRIGGER_DEBOUNCE_CMD_GET_DELAY_TIME_DEFAULT     = 9 #  Get the default trigger debounce delay time
 
 RGB_COLOR_MODEL_SRGB_D50        = 0x0001
 RGB_COLOR_MODEL_SRGB_D65        = 0x0002
@@ -2753,16 +2753,16 @@ RGB_COLOR_MODEL_CIE_RGB_E       = 0x0004
 RGB_COLOR_MODEL_ECI_RGB_D50     = 0x0008
 RGB_COLOR_MODEL_ADOBE_RGB_D65   = 0x0010
 
-COLOR_TEMPERATURE_CMD_SET_TEMPERATURE                   = 0 #  Set a new color temperature 
-COLOR_TEMPERATURE_CMD_SET_RGB_COLOR_MODEL               = 1 #  Set a new RGB color model 
-COLOR_TEMPERATURE_CMD_GET_SUPPORTED_RGB_COLOR_MODELS    = 2 #  Get the supported RGB color models 
-COLOR_TEMPERATURE_CMD_GET_TEMPERATURE                   = 3 #  Get the current color temperature 
-COLOR_TEMPERATURE_CMD_GET_RGB_COLOR_MODEL               = 4 #  Get the current RGB color model 
-COLOR_TEMPERATURE_CMD_GET_TEMPERATURE_MIN               = 5 #  Get the minimum value for the color temperature 
-COLOR_TEMPERATURE_CMD_GET_TEMPERATURE_MAX               = 6 #  Get the maximum value for the color temperature 
-COLOR_TEMPERATURE_CMD_GET_TEMPERATURE_INC               = 7 #  Get the increment of the color temperature 
-COLOR_TEMPERATURE_CMD_GET_TEMPERATURE_DEFAULT           = 8 #  Get the default color temperature 
-COLOR_TEMPERATURE_CMD_GET_RGB_COLOR_MODEL_DEFAULT       = 9  #  Get the default RGB color model 
+COLOR_TEMPERATURE_CMD_SET_TEMPERATURE                   = 0 #  Set a new color temperature
+COLOR_TEMPERATURE_CMD_SET_RGB_COLOR_MODEL               = 1 #  Set a new RGB color model
+COLOR_TEMPERATURE_CMD_GET_SUPPORTED_RGB_COLOR_MODELS    = 2 #  Get the supported RGB color models
+COLOR_TEMPERATURE_CMD_GET_TEMPERATURE                   = 3 #  Get the current color temperature
+COLOR_TEMPERATURE_CMD_GET_RGB_COLOR_MODEL               = 4 #  Get the current RGB color model
+COLOR_TEMPERATURE_CMD_GET_TEMPERATURE_MIN               = 5 #  Get the minimum value for the color temperature
+COLOR_TEMPERATURE_CMD_GET_TEMPERATURE_MAX               = 6 #  Get the maximum value for the color temperature
+COLOR_TEMPERATURE_CMD_GET_TEMPERATURE_INC               = 7 #  Get the increment of the color temperature
+COLOR_TEMPERATURE_CMD_GET_TEMPERATURE_DEFAULT           = 8 #  Get the default color temperature
+COLOR_TEMPERATURE_CMD_GET_RGB_COLOR_MODEL_DEFAULT       = 9  #  Get the default RGB color model
 
 class IS_POINT_2D(ctypes.Structure):
     """
@@ -2779,7 +2779,7 @@ class IS_SIZE_2D(ctypes.Structure):
     """
     _fields_ = [("s32Width", wt.INT),
                 ("s32Height", wt.INT)]
- 
+
 class IS_RECT(ctypes.Structure):
     """
     :var INT s32X:
@@ -2790,7 +2790,7 @@ class IS_RECT(ctypes.Structure):
     _fields_ = [("s32X", wt.INT),
                 ("s32Y", wt.INT),
                 ("s32Width", wt.INT),
-                ("s32Height", wt.INT)] 
+                ("s32Height", wt.INT)]
 
 class AOI_SEQUENCE_PARAMS(ctypes.Structure):
     """
@@ -2827,10 +2827,10 @@ IS_DEVICE_FEATURE_CMD_SET_SHUTTER_MODE                     = 6
 IS_DEVICE_FEATURE_CMD_GET_SHUTTER_MODE                     = 7
 IS_DEVICE_FEATURE_CMD_SET_PREFER_XS_HS_MODE                = 8
 IS_DEVICE_FEATURE_CMD_GET_PREFER_XS_HS_MODE                = 9
-IS_DEVICE_FEATURE_CMD_GET_DEFAULT_PREFER_XS_HS_MODE        = 10   
+IS_DEVICE_FEATURE_CMD_GET_DEFAULT_PREFER_XS_HS_MODE        = 10
 IS_DEVICE_FEATURE_CMD_GET_LOG_MODE_DEFAULT                 = 11
 IS_DEVICE_FEATURE_CMD_GET_LOG_MODE                         = 12
-IS_DEVICE_FEATURE_CMD_SET_LOG_MODE                         = 13   
+IS_DEVICE_FEATURE_CMD_SET_LOG_MODE                         = 13
 IS_DEVICE_FEATURE_CMD_GET_LOG_MODE_MANUAL_VALUE_DEFAULT    = 14
 IS_DEVICE_FEATURE_CMD_GET_LOG_MODE_MANUAL_VALUE_RANGE      = 15
 IS_DEVICE_FEATURE_CMD_GET_LOG_MODE_MANUAL_VALUE            = 16
@@ -2866,7 +2866,7 @@ class RANGE_OF_VALUES_U32(ctypes.Structure):
                 ("u32Increment", wt.UINT),
                 ("u32Default", wt.UINT),
                 ("u32Infinite", wt.UINT)]
-    
+
 TRANSFER_CAP_IMAGEDELAY                     = 0x01
 TRANSFER_CAP_PACKETINTERVAL                 = 0x20
 
@@ -2886,20 +2886,20 @@ IS_TRANSFER_DESTINATION_USER_MEMORY     = 2
 
 IS_BOOTBOOST_ID = wt.BYTE
 
-IS_BOOTBOOST_ID_MIN   =  1   
-IS_BOOTBOOST_ID_MAX   =  254 
-IS_BOOTBOOST_ID_NONE  =  0   
-IS_BOOTBOOST_ID_ALL   =  255 
+IS_BOOTBOOST_ID_MIN   =  1
+IS_BOOTBOOST_ID_MAX   =  254
+IS_BOOTBOOST_ID_NONE  =  0
+IS_BOOTBOOST_ID_ALL   =  255
 
 # class IS_BOOTBOOST_IDLIST(ctypes.Structure):
     # _fields_ = [("u32NumberOfEntries", wt.DWORD),
                 # ("aList", ctypes.POINTER(IS_BOOTBOOST_ID))]
 def create_bootboost_idlist(numberOfEntries):
     """Returns an instance of the IS_BOOTBOOST_IDLIST structure having the properly scaled *aList* array.
-    
+
     :param ULONG numberOfEntries: Number of aList structures requested.
     :returns: IS_BOOTBOOST_IDLIST
-    
+
     :var DWORD u32NumberOfEntries:
     :var IS_BOOTBOOST_ID[numberOfEntries] aList:
     """
@@ -2909,7 +2909,7 @@ def create_bootboost_idlist(numberOfEntries):
     a_list = IS_BOOTBOOST_IDLIST()
     a_list.u32NumberOfEntries = numberOfEntries
     return a_list
-    
+
 IS_BOOTBOOST_IDLIST_HEADERSIZE  = (ctypes.sizeof(wt.DWORD))
 IS_BOOTBOOST_IDLIST_ELEMENTSIZE = (ctypes.sizeof(IS_BOOTBOOST_ID))
 
@@ -2934,8 +2934,8 @@ IPCONFIG_CMD_GET_PERSISTENT_IP          = 0x02010000
 IPCONFIG_CMD_GET_AUTOCONFIG_IP          = 0x02040000
 IPCONFIG_CMD_GET_AUTOCONFIG_IP_BYDEVICE = 0x02040100
 
-IS_CONFIG_CPU_IDLE_STATES_BIT_AC_VALUE         = 0x01 # !< Mains power 
-IS_CONFIG_CPU_IDLE_STATES_BIT_DC_VALUE         = 0x02 # !< Battery power 
+IS_CONFIG_CPU_IDLE_STATES_BIT_AC_VALUE         = 0x01 # !< Mains power
+IS_CONFIG_CPU_IDLE_STATES_BIT_DC_VALUE         = 0x02 # !< Battery power
 
 IS_CONFIG_OPEN_MP_DISABLE                      = 0
 IS_CONFIG_OPEN_MP_ENABLE                       = 1
@@ -2957,9 +2957,9 @@ IS_CONFIG_OPEN_MP_CMD_GET_ENABLE_DEFAULT               = 8
 IS_CONFIG_INITIAL_PARAMETERSET_CMD_SET                 = 9
 IS_CONFIG_INITIAL_PARAMETERSET_CMD_GET                 = 10
 
-IS_CONFIG_CPU_IDLE_STATES_CAP_SUPPORTED                = 0x00000001 # !< CPU idle state commands are supported by the SDK 
-IS_CONFIG_OPEN_MP_CAP_SUPPORTED                        = 0x00000002 # !< Open MP commands are supported by the SDK 
-IS_CONFIG_INITIAL_PARAMETERSET_CAP_SUPPORTED           = 0x00000004  # !< Initial parameter set commands are supported by the SDK 
+IS_CONFIG_CPU_IDLE_STATES_CAP_SUPPORTED                = 0x00000001 # !< CPU idle state commands are supported by the SDK
+IS_CONFIG_OPEN_MP_CAP_SUPPORTED                        = 0x00000002 # !< Open MP commands are supported by the SDK
+IS_CONFIG_INITIAL_PARAMETERSET_CAP_SUPPORTED           = 0x00000004  # !< Initial parameter set commands are supported by the SDK
 
 IS_EXPOSURE_CMD_GET_CAPS                        = 1
 IS_EXPOSURE_CMD_GET_EXPOSURE_DEFAULT            = 2
@@ -3038,7 +3038,7 @@ IO_FLASH_MODE_GPIO_1              =  0x0010
 IO_FLASH_MODE_GPIO_2              =  0x0020
 IO_FLASH_MODE_GPIO_3              =  0x0040
 IO_FLASH_MODE_GPIO_4              =  0x0080
-IO_FLASH_GPIO_PORT_MASK           =  (IO_FLASH_MODE_GPIO_1 | IO_FLASH_MODE_GPIO_2 | IO_FLASH_MODE_GPIO_3 | IO_FLASH_MODE_GPIO_4)  
+IO_FLASH_GPIO_PORT_MASK           =  (IO_FLASH_MODE_GPIO_1 | IO_FLASH_MODE_GPIO_2 | IO_FLASH_MODE_GPIO_3 | IO_FLASH_MODE_GPIO_4)
 
 IO_GPIO_1                         =  0x0001
 IO_GPIO_2                         =  0x0002
@@ -3063,7 +3063,7 @@ IS_IO_CMD_GPIOS_SET_STATE                   = 7
 IS_IO_CMD_LED_GET_STATE                     = 8
 IS_IO_CMD_LED_SET_STATE                     = 9
 IS_IO_CMD_LED_TOGGLE_STATE                  = 10
-IS_IO_CMD_FLASH_GET_GLOBAL_PARAMS           = 11 
+IS_IO_CMD_FLASH_GET_GLOBAL_PARAMS           = 11
 IS_IO_CMD_FLASH_APPLY_GLOBAL_PARAMS         = 12
 IS_IO_CMD_FLASH_GET_SUPPORTED_GPIOS         = 13
 IS_IO_CMD_FLASH_GET_PARAMS_MIN              = 14
@@ -3073,7 +3073,7 @@ IS_IO_CMD_FLASH_GET_PARAMS                  = 17
 IS_IO_CMD_FLASH_SET_PARAMS                  = 18
 IS_IO_CMD_FLASH_GET_MODE                    = 19
 IS_IO_CMD_FLASH_SET_MODE                    = 20
-IS_IO_CMD_PWM_GET_SUPPORTED_GPIOS           = 21    
+IS_IO_CMD_PWM_GET_SUPPORTED_GPIOS           = 21
 IS_IO_CMD_PWM_GET_PARAMS_MIN                = 22
 IS_IO_CMD_PWM_GET_PARAMS_MAX                = 23
 IS_IO_CMD_PWM_GET_PARAMS_INC                = 24
@@ -3085,7 +3085,7 @@ IS_IO_CMD_GPIOS_GET_CONFIGURATION           = 29
 IS_IO_CMD_GPIOS_SET_CONFIGURATION           = 30
 IS_IO_CMD_FLASH_GET_GPIO_PARAMS_MIN         = 31
 IS_IO_CMD_FLASH_SET_GPIO_PARAMS             = 32
-        
+
 IS_AWB_CMD_GET_SUPPORTED_TYPES              = 1
 IS_AWB_CMD_GET_TYPE                         = 2
 IS_AWB_CMD_SET_TYPE                         = 3
@@ -3105,25 +3105,25 @@ IS_AUTOPARAMETER_ENABLE_RUNONCE =     2
 class BUFFER_CONVERSION_PARAMS(ctypes.Structure):
     """
     :var ctypes.c_char_p pSourceBuffer:
-    :var ctypes.c_char_p pDestBuffer: 
-    :var INT nDestPixelFormat: 
-    :var INT nDestPixelConverter: 
-    :var INT nDestGamma: 
-    :var INT nDestEdgeEnhancement: 
+    :var ctypes.c_char_p pDestBuffer:
+    :var INT nDestPixelFormat:
+    :var INT nDestPixelConverter:
+    :var INT nDestGamma:
+    :var INT nDestEdgeEnhancement:
     :var INT nDestColorCorrectionMode:
-    :var INT nDestSaturationU: 
-    :var INT nDestSaturationV: 
+    :var INT nDestSaturationU:
+    :var INT nDestSaturationV:
     :var BYTE[32] reserved:
     """
-    _fields_ = [("pSourceBuffer", ctypes.c_char_p), 
-                ("pDestBuffer", ctypes.c_char_p), 
-                ("nDestPixelFormat", wt.INT), 
-                ("nDestPixelConverter", wt.INT), 
-                ("nDestGamma", wt.INT), 
-                ("nDestEdgeEnhancement", wt.INT), 
-                ("nDestColorCorrectionMode", wt.INT), 
-                ("nDestSaturationU", wt.INT), 
-                ("nDestSaturationV", wt.INT), 
+    _fields_ = [("pSourceBuffer", ctypes.c_char_p),
+                ("pDestBuffer", ctypes.c_char_p),
+                ("nDestPixelFormat", wt.INT),
+                ("nDestPixelConverter", wt.INT),
+                ("nDestGamma", wt.INT),
+                ("nDestEdgeEnhancement", wt.INT),
+                ("nDestColorCorrectionMode", wt.INT),
+                ("nDestSaturationU", wt.INT),
+                ("nDestSaturationV", wt.INT),
                 ("reserved", wt.BYTE * 32)]
 
 
@@ -3144,7 +3144,7 @@ IS_PIXELCLOCK_CMD_GET_NUMBER    = 1
 IS_PIXELCLOCK_CMD_GET_LIST      = 2
 IS_PIXELCLOCK_CMD_GET_RANGE     = 3
 IS_PIXELCLOCK_CMD_GET_DEFAULT   = 4
-IS_PIXELCLOCK_CMD_GET           = 5 
+IS_PIXELCLOCK_CMD_GET           = 5
 IS_PIXELCLOCK_CMD_SET           = 6
 
 class IMAGE_FILE_PARAMS(ctypes.Structure):
@@ -3155,12 +3155,12 @@ class IMAGE_FILE_PARAMS(ctypes.Structure):
     :var ctypes.POINTER(ctypes.c_char_p) ppcImageMem:
     :var ctypes.POINTER(wt.UINT) pnImageID:
     :var BYTE[32] reserved:
-    """    
-    _fields_ = [("pwchFileName", ctypes.c_wchar_p), 
-                ("nFileType", wt.UINT), 
-                ("nQuality", wt.UINT), 
-                ("ppcImageMem", ctypes.POINTER(ctypes.c_char_p)), 
-                ("pnImageID", ctypes.POINTER(wt.UINT)),  
+    """
+    _fields_ = [("pwchFileName", ctypes.c_wchar_p),
+                ("nFileType", wt.UINT),
+                ("nQuality", wt.UINT),
+                ("ppcImageMem", ctypes.POINTER(ctypes.c_char_p)),
+                ("pnImageID", ctypes.POINTER(wt.UINT)),
                 ("reserved", wt.BYTE * 32)]
 
 IS_IMAGE_FILE_CMD_LOAD    = 1
@@ -3181,7 +3181,7 @@ IS_AUTO_BLACKLEVEL_ON  = 1
 
 IS_BLACKLEVEL_CAP_SET_AUTO_BLACKLEVEL   = 1
 IS_BLACKLEVEL_CAP_SET_OFFSET            = 2
-    
+
 IS_BLACKLEVEL_CMD_GET_CAPS           = 1
 IS_BLACKLEVEL_CMD_GET_MODE_DEFAULT   = 2
 IS_BLACKLEVEL_CMD_GET_MODE           = 3
