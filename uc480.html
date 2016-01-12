@@ -1,6 +1,5 @@
-
-
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,7 +8,7 @@
     
     <title>Thorlabs’ uc480 CCD/CMOS Cameras - uc480 &mdash; Python Hardware Support 1.0 documentation</title>
     
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -24,15 +23,10 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="shortcut icon" href="_static/icon.ico"/>
     <link rel="top" title="Python Hardware Support 1.0 documentation" href="index.html" />
     <link rel="next" title="Thorlabs’ uc480 CCD/CMOS Cameras - Supporting Files" href="uc480_supporting.html" />
-    <link rel="prev" title="Ophir USBI ActiveX Support - ophirUSBI" href="ophirUSBI.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
-    <![endif]-->
+    <link rel="prev" title="Ophir USBI ActiveX Support - ophirUSBI" href="ophirUSBI.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -58,12 +52,13 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/logo.png" alt="Logo"/>
             </a></p>
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="ophirUSBI.html"
-                        title="previous chapter">Ophir USBI ActiveX Support - <code class="docutils literal"><span class="pre">ophirUSBI</span></code></a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="uc480_supporting.html"
-                        title="next chapter">Thorlabs&#8217; uc480 CCD/CMOS Cameras - Supporting Files</a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="picam.html">Support for Princeton Instruments&#8217; PICam Library - <code class="docutils literal"><span class="pre">picam</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ophirUSBI.html">Ophir USBI ActiveX Support - <code class="docutils literal"><span class="pre">ophirUSBI</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Thorlabs&#8217; uc480 CCD/CMOS Cameras - <code class="docutils literal"><span class="pre">uc480</span></code></a></li>
+</ul>
+
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -108,6 +103,13 @@
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+<p><strong>Changelog:</strong></p>
+<p><em>01-07-2016</em>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Added two new functions: <cite>stop</cite> and <cite>get_sensor_size</cite>.</li>
+</ul>
+</div></blockquote>
 <p>See also:</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -218,11 +220,15 @@
 <dl class="method">
 <dt id="uc480.uc480.connect_to_library">
 <code class="descname">connect_to_library</code><span class="sig-paren">(</span><em>library=None</em><span class="sig-paren">)</span><a class="headerlink" href="#uc480.uc480.connect_to_library" title="Permalink to this definition">¶</a></dt>
-<dd><p>Establish connection to uc480 library depending on operating system and version. If no library name is given (default), the function looks for 
-- <strong>uc480.dll</strong> on Win32
-- <strong>uc480_64.dll</strong> on Win64
-- <strong>libueye_api.so.3.82</strong> on Linux32
-- <strong>libueye_api64.so.3.82</strong> on Linux64.</p>
+<dd><p>Establish connection to uc480 library depending on operating system and version. If no library name is given (default), the function looks for</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>uc480.dll</strong> on Win32</li>
+<li><strong>uc480_64.dll</strong> on Win64</li>
+<li><strong>libueye_api.so.3.82</strong> on Linux32</li>
+<li><strong>libueye_api64.so.3.82</strong> on Linux64.</li>
+</ul>
+</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -290,6 +296,16 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="uc480.uc480.get_sensor_size">
+<code class="descname">get_sensor_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#uc480.uc480.get_sensor_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the sensor size as tuple: (width, height).</p>
+<p>If not connected yet, it returns a zero tuple.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 01-07-2016.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="uc480.uc480.query">
 <code class="descname">query</code><span class="sig-paren">(</span><em>function</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#uc480.uc480.query" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper around library function calls to allow the user to call any library function AND query the response.</p>
@@ -344,6 +360,15 @@
 <dt id="uc480.uc480.set_gain_boost">
 <code class="descname">set_gain_boost</code><span class="sig-paren">(</span><em>onoff</em><span class="sig-paren">)</span><a class="headerlink" href="#uc480.uc480.set_gain_boost" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch gain boost on or off.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="uc480.uc480.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#uc480.uc480.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as <cite>disconnect</cite>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 01-07-2016.</span></p>
+</div>
 </dd></dl>
 
 </dd></dl>
