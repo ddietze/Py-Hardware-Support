@@ -3,7 +3,7 @@
    :platform: Windows
 .. moduleauthor:: Daniel R. Dietze <daniel.dietze@berkeley.edu>
 
-Basic interface to PrincetonInstrument's PICam library. It supports most of the standard features
+Basic interface to Princeton Instrument's PICam library. It supports most of the standard features
 that are provided by PICam. I have decided not to implement a non-blocking version of the image
 acquisition in order to keep things clear and simple.
 
