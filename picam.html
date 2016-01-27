@@ -88,83 +88,12 @@
 <p class="first admonition-title">Note</p>
 <p class="last">This version of <a class="reference internal" href="#module-picam" title="picam"><code class="xref py py-mod docutils literal"><span class="pre">picam</span></code></a> was developed under Python 2.7 and does not yet run under Python 3 mainly due to the changed print syntax.</p>
 </div>
-<p>Example code that sets a Pixis 100 to the fastest possible readout for use as spectrometer CCD:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pylab</span> <span class="kn">as</span> <span class="nn">pl</span>
-<span class="kn">import</span> <span class="nn">picam</span>
-
-<span class="n">cam</span> <span class="o">=</span> <span class="n">picam</span><span class="o">.</span><span class="n">picam</span><span class="p">()</span>
-
-<span class="n">cam</span><span class="o">.</span><span class="n">loadLibrary</span><span class="p">()</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">getAvailableCameras</span><span class="p">()</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-
-<span class="c"># shortest expoure</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ExposureTime&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="c"># set readout mode</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ReadoutControlMode&quot;</span><span class="p">,</span> <span class="n">PicamReadoutControlMode</span><span class="p">[</span><span class="s">&quot;FullFrame&quot;</span><span class="p">])</span>
-
-<span class="c"># custom chip settings</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setROI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1339</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ActiveWidth&quot;</span><span class="p">,</span> <span class="mi">1340</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ActiveHeight&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ActiveLeftMargin&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ActiveRightMargin&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ActiveTopMargin&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ActiveBottomMargin&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;VerticalShiftRate&quot;</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">)</span>
-
-<span class="c"># set logic out to not ready - needed for external trigger electronic</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;OutputSignal&quot;</span><span class="p">,</span> <span class="n">PicamOutputSignal</span><span class="p">[</span><span class="s">&quot;Busy&quot;</span><span class="p">])</span>
-
-<span class="c"># shutter delays; open before trigger corresponds to shutter opening pre delay</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ShutterTimingMode&quot;</span><span class="p">,</span> <span class="n">PicamShutterTimingMode</span><span class="p">[</span><span class="s">&quot;Normal&quot;</span><span class="p">])</span> <span class="c"># OpenBeforeTrigger, Normal</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ShutterClosingDelay&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="c"># sensor cleaning</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;CleanSectionFinalHeightCount&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;CleanSectionFinalHeight&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;CleanSerialRegister&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;CleanCycleCount&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;CleanCycleHeight&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;CleanUntilTrigger&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
-
-<span class="c"># sensor gain settings</span>
-<span class="c"># according to manual, Pixis supports 100kHz and 2MHz; select fastest</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;AdcSpeed&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;AdcAnalogGain&quot;</span><span class="p">,</span> <span class="n">PicamAdcAnalogGain</span><span class="p">[</span><span class="s">&quot;Low&quot;</span><span class="p">])</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;AdcQuality&quot;</span><span class="p">,</span> <span class="n">PicamAdcQuality</span><span class="p">[</span><span class="s">&quot;HighCapacity&quot;</span><span class="p">])</span>
-
-<span class="c"># trigger and timing settings</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;TriggerDetermination&quot;</span><span class="p">,</span> <span class="n">PicamTriggerDetermination</span><span class="p">[</span><span class="s">&quot;PositivePolarity&quot;</span><span class="p">])</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;TriggerResponse&quot;</span><span class="p">,</span> <span class="n">PicamTriggerResponse</span><span class="p">[</span><span class="s">&quot;ReadoutPerTrigger&quot;</span><span class="p">])</span>
-
-<span class="c"># send configuration - this step is important!</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">sendConfiguration</span><span class="p">()</span>
-
-<span class="c"># get readout speed</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&quot;Estimated readout time = </span><span class="si">%f</span><span class="s"> ms&quot;</span> <span class="o">%</span> <span class="n">cam</span><span class="o">.</span><span class="n">getParameter</span><span class="p">(</span><span class="s">&quot;ReadoutTimeCalculation&quot;</span><span class="p">))</span>
-
-<span class="c"># record a frame - in the present example you need an external trigger pulse</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">cam</span><span class="o">.</span><span class="n">readNFrames</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c"># clean up</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">unloadLibrary</span><span class="p">()</span>
-
-<span class="c"># display the result</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>See also:</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="picam_supporting.html">Supporting Files for Princeton Instruments&#8217; PICam Library - <code class="docutils literal"><span class="pre">picam_types</span></code></a></li>
 </ul>
 </div>
-<span class="target" id="module-picam"></span><p>Basic interface to PrincetonInstrument&#8217;s PICam library. It supports most of the standard features
+<span class="target" id="module-picam"></span><p>Basic interface to Princeton Instrument&#8217;s PICam library. It supports most of the standard features
 that are provided by PICam. I have decided not to implement a non-blocking version of the image
 acquisition in order to keep things clear and simple.</p>
 <p>Here is some example code showing the necessary parameters to get 1 kHz readout rates on a PIXIS100:</p>
