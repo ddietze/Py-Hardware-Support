@@ -27,7 +27,7 @@ Here is some example code showing the necessary parameters to get 1 kHz readout 
     cam.setParameter("ReadoutControlMode", PicamReadoutControlMode["FullFrame"])
 
     # custom chip settings
-    cam.setROI(0, 1339, 1, 0, 99, 100)
+    cam.setROI(0, 1340, 1, 0, 100, 100)
     cam.setParameter("ActiveWidth", 1340)
     cam.setParameter("ActiveHeight", 100)
     cam.setParameter("ActiveLeftMargin", 0)
@@ -629,7 +629,7 @@ if __name__ == '__main__':
     cam.setParameter("ReadoutControlMode", PicamReadoutControlMode["FullFrame"])
 
     # custom chip settings
-    cam.setROI(0, 1339, 1, 0, 99, 100)
+    cam.setROI(0, 1340, 1, 0, 100, 100)
     cam.setParameter("ActiveWidth", 1340)
     cam.setParameter("ActiveHeight", 100)
     cam.setParameter("ActiveLeftMargin", 0)
