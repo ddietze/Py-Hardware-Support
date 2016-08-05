@@ -570,7 +570,10 @@ class picam():
 
         # return data as numpy array
         if available.readout_count >= N:
-            return self.getBuffer(available.initial_readout, available.readout_count)[0:N]
+            if len(self.ROIS) == 1:
+                return self.getBuffer(available.initial_readout, available.readout_count)[0:N]
+            else:
+                return self.getBuffer(available.initial_readout, available.readout_count)[:][0:N]
         return []
 
     # this is a helper function that converts a readout buffer into a sequence of numpy arrays
@@ -608,7 +611,7 @@ class picam():
 
         # otherwise, iterate through rois and add to output list (has to be list due to possibly different sizes)
         out = []
-        for i, r in self.ROIS:
+        for i, r in enumerate(self.ROIS):
             out.append(data[:, r[2]:r[0] * r[1] + r[2]])
         return out
 
