@@ -22,28 +22,28 @@
    Copyright 2015 Daniel Dietze <daniel.dietze@berkeley.edu>.
 """
 import time
-import os
 import ctypes
 import platform
 _linux = (platform.system() == "Linux")
 import numpy as np
-import sys
 
 from uc480_h import *
 
 VERBOSE = False
+
 
 # ##########################################################################################################
 # helper functions
 def ptr(x):
     return ctypes.pointer(x)
 
+
 # ##########################################################################################################
 # Error handling
 class uc480Error(Exception):
     """uc480 exception class handling errors related to communication with the uc480 camera.
     """
-    def __init__(self, error, mess, fname = ""):
+    def __init__(self, error, mess, fname=""):
         """Constructor.
 
         :param int error: Error code.
@@ -60,10 +60,12 @@ class uc480Error(Exception):
         else:
             return self.mess
 
-def assrt(retVal, fname = ""):
+
+def assrt(retVal, fname=""):
     if not (retVal == IS_SUCCESS):
         raise uc480Error(retVal, "Error: uc480 function call failed! Error code = " + str(retVal), fname)
     return retVal
+
 
 # ##########################################################################################################
 # Camera Class
@@ -93,6 +95,7 @@ class uc480:
         # get list of cameras
         self.get_cameras()
 
+
     # wrapper around function calls to allow the user to call any library function
     def call(self, function, *args):
         """Wrapper around library function calls to allow the user to call any library function.
@@ -106,13 +109,14 @@ class uc480:
         func = getattr(self._lib, function, None)
         if func is not None:
             if _linux and function in ["is_RenderBitmap", "is_GetDC", "is_ReleaseDC", "is_UpdateDisplay",
-                                   "is_SetDisplayMode", "is_SetDisplayPos", "is_SetHwnd", "is_SetUpdateMode",
-                                   "is_GetColorDepth", "is_SetOptimalCameraTiming", "is_DirectRenderer"]:
+                                       "is_SetDisplayMode", "is_SetDisplayPos", "is_SetHwnd", "is_SetUpdateMode",
+                                       "is_GetColorDepth", "is_SetOptimalCameraTiming", "is_DirectRenderer"]:
                 print("WARNING: Function %s is not supported by this library version.." % function)
             else:
                 assrt(func(*args), function)
         else:
             print("WARNING: Function %s does not exist in this library version.." % function)
+
 
     # use this version if the called function actually returns a value
     def query(self, function, *args):
@@ -128,8 +132,8 @@ class uc480:
         func = getattr(self._lib, function, None)
         if func is not None:
             if _linux and function in ["is_RenderBitmap", "is_GetDC", "is_ReleaseDC", "is_UpdateDisplay",
-                                   "is_SetDisplayMode", "is_SetDisplayPos", "is_SetHwnd", "is_SetUpdateMode",
-                                   "is_GetColorDepth", "is_SetOptimalCameraTiming", "is_DirectRenderer"]:
+                                       "is_SetDisplayMode", "is_SetDisplayPos", "is_SetHwnd", "is_SetUpdateMode",
+                                       "is_GetColorDepth", "is_SetOptimalCameraTiming", "is_DirectRenderer"]:
                 print("WARNING: Function %s is not supported by this library version.." % function)
             else:
                 return func(*args)
@@ -137,8 +141,9 @@ class uc480:
             print("WARNING: Function %s does not exist in this library version.." % function)
             return
 
+
     # connect to uc480 DLL library
-    def connect_to_library(self, library = None):
+    def connect_to_library(self, library=None):
         """Establish connection to uc480 library depending on operating system and version. If no library name is given (default), the function looks for
 
             - **uc480.dll** on Win32
@@ -166,12 +171,13 @@ class uc480:
 
         # get version
         version = self.query("is_GetDLLVersion")
-        build = version & 0xFFFF;
-        version = version >> 16;
-        minor = version & 0xFF;
-        version = version >> 8;
-        major = version & 0xFF;
+        build = version & 0xFFFF
+        version = version >> 16
+        minor = version & 0xFF
+        version = version >> 8
+        major = version & 0xFF
         print("API version %d.%d.%d" % (major, minor, build))
+
 
     # query number of connected cameras and retrieve a list with CameraIDs
     def get_cameras(self):
@@ -189,8 +195,9 @@ class uc480:
                 camera = self._cam_list.uci[i]
                 print("Camera #%d: SerNo = %s, CameraID = %d, DeviceID = %d" % (i, camera.SerNo, camera.dwCameraID, camera.dwDeviceID))
 
+
     # connect to camera with given cameraID; if cameraID = 0, connect to first available camera
-    def connect(self, cameraID = 0):
+    def connect(self, cameraID=0):
         """Connect to the camera with the given cameraID. If cameraID is 0, connect to the first available camera. When connected, sensor information is read out, image memory is reserved and some default parameters are submitted.
 
         :param int cameraID: Number of camera to connect to. Set this to 0 to connect to the first available camera.
@@ -229,11 +236,13 @@ class uc480:
 
         self.create_buffer()
 
+
     # close connection and release memory!
     def disconnect(self):
         """Disconnect a currently connected camera.
         """
         self.call("is_ExitCamera", self._camID)
+
 
     def stop(self):
         """Same as `disconnect`.
@@ -241,6 +250,7 @@ class uc480:
         .. versionadded:: 01-07-2016
         """
         self.disconnect()
+
 
     # sensor info
     def get_sensor_size(self):
@@ -252,6 +262,7 @@ class uc480:
         """
         return self._swith, self._sheight
 
+
     # set hardware gain (0..100)
     def set_gain(self, gain):
         """Set the hardware gain.
@@ -260,6 +271,7 @@ class uc480:
         """
         self.call("is_SetHardwareGain", self._camID, max(0, min(int(gain), 100)), IS_IGNORE_PARAMETER, IS_IGNORE_PARAMETER, IS_IGNORE_PARAMETER)
 
+
     # returns gain
     def get_gain(self):
         """Returns current gain setting.
@@ -267,10 +279,12 @@ class uc480:
         pParam = self.query("is_SetHardwareGain", self._camID, IS_GET_MASTER_GAIN, IS_IGNORE_PARAMETER, IS_IGNORE_PARAMETER, IS_IGNORE_PARAMETER)
         return pParam
 
+
     def get_gain_limits(self):
         """Returns gain limits (*min, max, increment*).
         """
         return 0, 100, 1
+
 
     # switch gain boost on/ off
     def set_gain_boost(self, onoff):
@@ -281,6 +295,7 @@ class uc480:
         else:
             self.call("is_SetGainBoost", self._camID, IS_SET_GAINBOOST_OFF)
 
+
     # set blacklevel compensation
     def set_blacklevel(self, blck):
         """Set blacklevel compensation on or off.
@@ -288,12 +303,14 @@ class uc480:
         nMode = ctypes.c_int(blck)
         self.call("is_Blacklevel", self._camID, IS_BLACKLEVEL_CMD_SET_MODE, ptr(nMode), ctypes.sizeof(nMode))
 
+
     # sets exposure time in ms
     def set_exposure(self, exp):
         """Set exposure time in milliseconds.
         """
         pParam = ctypes.c_double(exp)
         self.call("is_Exposure", self._camID, IS_EXPOSURE_CMD_SET_EXPOSURE, ptr(pParam), ctypes.sizeof(pParam))
+
 
     # returns exposure time in ms
     def get_exposure(self):
@@ -303,10 +320,12 @@ class uc480:
         self.call("is_Exposure", self._camID, IS_EXPOSURE_CMD_GET_EXPOSURE, ptr(pParam), ctypes.sizeof(pParam))
         return pParam.value
 
+
     def get_exposure_limits(self):
         """Returns the supported limits for the exposure time (*min, max, increment*).
         """
         return self.expmin, self.expmax, self.expinc
+
 
     # create image buffers
     def create_buffer(self):
@@ -319,8 +338,9 @@ class uc480:
             self.call("is_FreeImageMem", self._camID, self._image, self._imgID)
         self._image = ctypes.c_char_p()
         self._imgID = ctypes.c_int()
-        self.call("is_AllocImageMem", self._camID, self._swidth, self._sheight, self._bitsperpixel, ptr( self._image ), ptr( self._imgID ))
+        self.call("is_AllocImageMem", self._camID, self._swidth, self._sheight, self._bitsperpixel, ptr(self._image), ptr(self._imgID))
         self.call("is_SetImageMem", self._camID, self._image, self._imgID)
+
 
     # copy data from camera buffer to numpy frame buffer and return typecast to float
     def get_buffer(self):
@@ -337,8 +357,9 @@ class uc480:
         self.call("is_CopyImageMem", self._camID, self._image, self._imgID, _framedata.ctypes.data_as(ctypes.c_char_p))
         return _framedata
 
+
     # captures N frames and returns the averaged image
-    def acquire(self, N = 1):
+    def acquire(self, N=1):
         """Synchronously captures some frames from the camera using the current settings and returns the averaged image.
 
         :param int N: Number of frames to acquire (> 1).
@@ -367,9 +388,10 @@ class uc480:
 
         return data
 
+
     # captures N frames and returns the fully binned arrays
     # along x and y directions and the maximum intensity in the array
-    def acquireBinned(self, N = 1):
+    def acquireBinned(self, N=1):
         """Record N frames from the camera using the current settings and return fully binned 1d arrays averaged over the N frames.
 
         :param int N: Number of images to acquire.
@@ -380,8 +402,9 @@ class uc480:
         data = self.acquire(N)
         return np.sum(data, axis=0), np.sum(data, axis=1), np.amax(data)
 
+
     # returns the column / row with the maximum intensity
-    def acquireMax(self, N = 1):
+    def acquireMax(self, N=1):
         """Record N frames from the camera using the current settings and return the column / row with the maximum intensity.
 
         :param int N: Number of images to acquire.
@@ -389,7 +412,8 @@ class uc480:
                   - Row with maximum intensity (1d array).
         """
         data = self.acquire(N)
-        return data[np.argmax(np.data, axis=0),:], data[:,np.argmax(np.data, axis=1)]
+        return data[np.argmax(np.data, axis=0), :], data[:, np.argmax(np.data, axis=1)]
+
 
 if __name__ == "__main__":
 
