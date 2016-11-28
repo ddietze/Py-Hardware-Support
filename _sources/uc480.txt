@@ -15,7 +15,7 @@ Eample using :py:mod:`matplotlib` for displaying a captured image::
     cam.connect()
 
     # take a single image
-    img = self.cam.acquire()
+    img = cam.acquire()
 
     # clean up
     cam.disconnect()
@@ -24,6 +24,10 @@ Eample using :py:mod:`matplotlib` for displaying a captured image::
     pl.show()
 
 **Changelog:**
+
+*11-28-2016*:
+
+    * Added bug fix and new functionality for connecting to camera through device ID instead of camera ID.
 
 *01-07-2016*:
 

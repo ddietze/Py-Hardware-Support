@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Support for Princeton Instruments’ PICam Library - picam &mdash; Python Hardware Support 1.0 documentation</title>
+    <title>Support for Princeton Instruments’ PICam Library - picam &#8212; Python Hardware Support 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,6 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/icon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="Python Hardware Support 1.0 documentation" href="index.html" />
     <link rel="next" title="Supporting Files for Princeton Instruments’ PICam Library - picam_types" href="picam_supporting.html" />
     <link rel="prev" title="Py-Hardware-Support - A collection of python modules for common laboratory hardware" href="index.html" /> 
@@ -44,7 +46,7 @@
         <li class="right" >
           <a href="index.html" title="Py-Hardware-Support - A collection of python modules for common laboratory hardware"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Python Hardware Support 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Python Hardware Support 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -54,7 +56,7 @@
             </a></p>
 <h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Support for Princeton Instruments&#8217; PICam Library - <code class="docutils literal"><span class="pre">picam</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Support for Princeton Instruments&#8217; PICam Library - <code class="docutils literal"><span class="pre">picam</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="ophirUSBI.html">Ophir USBI ActiveX Support - <code class="docutils literal"><span class="pre">ophirUSBI</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="uc480.html">Thorlabs&#8217; uc480 CCD/CMOS Cameras - <code class="docutils literal"><span class="pre">uc480</span></code></a></li>
 </ul>
@@ -62,14 +64,11 @@
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -82,7 +81,7 @@
             
   <div class="section" id="support-for-princeton-instruments-picam-library-picam">
 <h1>Support for Princeton Instruments&#8217; PICam Library - <a class="reference internal" href="#module-picam" title="picam"><code class="xref py py-mod docutils literal"><span class="pre">picam</span></code></a><a class="headerlink" href="#support-for-princeton-instruments-picam-library-picam" title="Permalink to this headline">¶</a></h1>
-<p>Python wrapper around Princeton Instruments&#8217; PICam camera SDK using <a class="reference external" href="https://docs.python.org/library/ctypes.html#module-ctypes" title="(in Python v2.7)"><code class="xref py py-mod docutils literal"><span class="pre">ctypes</span></code></a>. This version has been partly inspired by Joe Lowney&#8217;s GitHub project (<a class="reference external" href="https://github.com/joelowney/PythonForPicam">https://github.com/joelowney/PythonForPicam</a>).</p>
+<p>Python wrapper around Princeton Instruments&#8217; PICam camera SDK using <a class="reference external" href="https://docs.python.org/2/library/ctypes.html#module-ctypes" title="(in Python v2.7)"><code class="xref py py-mod docutils literal"><span class="pre">ctypes</span></code></a>. This version has been partly inspired by Joe Lowney&#8217;s GitHub project (<a class="reference external" href="https://github.com/joelowney/PythonForPicam">https://github.com/joelowney/PythonForPicam</a>).</p>
 <p>In order to run this module, you have to have the PICam library, provided by Princeton Instruments at <a class="reference external" href="ftp://ftp.princetoninstruments.com/Public/Software/Official/PICam">ftp://ftp.princetoninstruments.com/Public/Software/Official/PICam</a>, installed on your computer. The module looks for <em>Picam.dll</em> either at a path provided by the user or at the path provided in the environment variable <em>PicamRoot</em>, which is created by the PICam installer.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -97,63 +96,63 @@
 that are provided by PICam. I have decided not to implement a non-blocking version of the image
 acquisition in order to keep things clear and simple.</p>
 <p>Here is some example code showing the necessary parameters to get 1 kHz readout rates on a PIXIS100:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">picam</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">picam</span> <span class="k">import</span> <span class="o">*</span>
 
-<span class="c"># initialize camera class and connect to library, look for available camera and connect to first one</span>
+<span class="c1"># initialize camera class and connect to library, look for available camera and connect to first one</span>
 <span class="n">cam</span> <span class="o">=</span> <span class="n">picam</span><span class="p">()</span>
 <span class="n">cam</span><span class="o">.</span><span class="n">loadLibrary</span><span class="p">()</span>
 <span class="n">cam</span><span class="o">.</span><span class="n">getAvailableCameras</span><span class="p">()</span>
 <span class="n">cam</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
-<span class="c"># this will cool down CCD</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;SensorTemperatureSetPoint&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">75</span><span class="p">)</span>
+<span class="c1"># this will cool down CCD</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;SensorTemperatureSetPoint&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">75</span><span class="p">)</span>
 
-<span class="c"># shortest expoure</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ExposureTime&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># shortest expoure</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;ExposureTime&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="c"># readout mode</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ReadoutControlMode&quot;</span><span class="p">,</span> <span class="n">PicamReadoutControlMode</span><span class="p">[</span><span class="s">&quot;FullFrame&quot;</span><span class="p">])</span>
+<span class="c1"># readout mode</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;ReadoutControlMode&quot;</span><span class="p">,</span> <span class="n">PicamReadoutControlMode</span><span class="p">[</span><span class="s2">&quot;FullFrame&quot;</span><span class="p">])</span>
 
-<span class="c"># custom chip settings</span>
+<span class="c1"># custom chip settings</span>
 <span class="n">cam</span><span class="o">.</span><span class="n">setROI</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1339</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ActiveWidth&quot;</span><span class="p">,</span> <span class="mi">1340</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ActiveHeight&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ActiveLeftMargin&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ActiveRightMargin&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ActiveTopMargin&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ActiveBottomMargin&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;VerticalShiftRate&quot;</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">)</span>    <span class="c"># select fastest</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;ActiveWidth&quot;</span><span class="p">,</span> <span class="mi">1340</span><span class="p">)</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;ActiveHeight&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;ActiveLeftMargin&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;ActiveRightMargin&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;ActiveTopMargin&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;ActiveBottomMargin&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;VerticalShiftRate&quot;</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">)</span>    <span class="c1"># select fastest</span>
 
-<span class="c"># set logic out to not ready</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;OutputSignal&quot;</span><span class="p">,</span> <span class="n">PicamOutputSignal</span><span class="p">[</span><span class="s">&quot;Busy&quot;</span><span class="p">])</span>
+<span class="c1"># set logic out to not ready</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;OutputSignal&quot;</span><span class="p">,</span> <span class="n">PicamOutputSignal</span><span class="p">[</span><span class="s2">&quot;Busy&quot;</span><span class="p">])</span>
 
-<span class="c"># shutter delays; open before trigger corresponds to shutter opening pre delay</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ShutterTimingMode&quot;</span><span class="p">,</span> <span class="n">PicamShutterTimingMode</span><span class="p">[</span><span class="s">&quot;Normal&quot;</span><span class="p">])</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;ShutterClosingDelay&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># shutter delays; open before trigger corresponds to shutter opening pre delay</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;ShutterTimingMode&quot;</span><span class="p">,</span> <span class="n">PicamShutterTimingMode</span><span class="p">[</span><span class="s2">&quot;Normal&quot;</span><span class="p">])</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;ShutterClosingDelay&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="c"># sensor cleaning</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;CleanSectionFinalHeightCount&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;CleanSectionFinalHeight&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;CleanSerialRegister&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;CleanCycleCount&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;CleanCycleHeight&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;CleanUntilTrigger&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="c1"># sensor cleaning</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;CleanSectionFinalHeightCount&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;CleanSectionFinalHeight&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;CleanSerialRegister&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;CleanCycleCount&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;CleanCycleHeight&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;CleanUntilTrigger&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 
-<span class="c"># sensor gain settings</span>
-<span class="c"># according to manual, Pixis supports 100kHz and 2MHz; select fastest</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;AdcSpeed&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;AdcAnalogGain&quot;</span><span class="p">,</span> <span class="n">PicamAdcAnalogGain</span><span class="p">[</span><span class="s">&quot;Low&quot;</span><span class="p">])</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;AdcQuality&quot;</span><span class="p">,</span> <span class="n">PicamAdcQuality</span><span class="p">[</span><span class="s">&quot;HighCapacity&quot;</span><span class="p">])</span>
+<span class="c1"># sensor gain settings</span>
+<span class="c1"># according to manual, Pixis supports 100kHz and 2MHz; select fastest</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;AdcSpeed&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;AdcAnalogGain&quot;</span><span class="p">,</span> <span class="n">PicamAdcAnalogGain</span><span class="p">[</span><span class="s2">&quot;Low&quot;</span><span class="p">])</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;AdcQuality&quot;</span><span class="p">,</span> <span class="n">PicamAdcQuality</span><span class="p">[</span><span class="s2">&quot;HighCapacity&quot;</span><span class="p">])</span>
 
-<span class="c"># trigger and timing settings</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;TriggerDetermination&quot;</span><span class="p">,</span> <span class="n">PicamTriggerDetermination</span><span class="p">[</span><span class="s">&quot;PositivePolarity&quot;</span><span class="p">])</span>
-<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&quot;TriggerResponse&quot;</span><span class="p">,</span> <span class="n">PicamTriggerResponse</span><span class="p">[</span><span class="s">&quot;ReadoutPerTrigger&quot;</span><span class="p">])</span>
+<span class="c1"># trigger and timing settings</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;TriggerDetermination&quot;</span><span class="p">,</span> <span class="n">PicamTriggerDetermination</span><span class="p">[</span><span class="s2">&quot;PositivePolarity&quot;</span><span class="p">])</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s2">&quot;TriggerResponse&quot;</span><span class="p">,</span> <span class="n">PicamTriggerResponse</span><span class="p">[</span><span class="s2">&quot;ReadoutPerTrigger&quot;</span><span class="p">])</span>
 
-<span class="c"># send configuration</span>
+<span class="c1"># send configuration</span>
 <span class="n">cam</span><span class="o">.</span><span class="n">sendConfiguration</span><span class="p">()</span>
 
-<span class="c"># get readout speed</span>
-<span class="k">print</span> <span class="s">&quot;Estimated readout time = </span><span class="si">%f</span><span class="s"> ms&quot;</span> <span class="o">%</span> <span class="n">cam</span><span class="o">.</span><span class="n">getParameter</span><span class="p">(</span><span class="s">&quot;ReadoutTimeCalculation&quot;</span><span class="p">)</span>
+<span class="c1"># get readout speed</span>
+<span class="nb">print</span> <span class="s2">&quot;Estimated readout time = </span><span class="si">%f</span><span class="s2"> ms&quot;</span> <span class="o">%</span> <span class="n">cam</span><span class="o">.</span><span class="n">getParameter</span><span class="p">(</span><span class="s2">&quot;ReadoutTimeCalculation&quot;</span><span class="p">)</span>
 
 <span class="n">cam</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
 <span class="n">cam</span><span class="o">.</span><span class="n">unloadLibrary</span><span class="p">()</span>
@@ -176,12 +175,12 @@ acquisition in order to keep things clear and simple.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x0</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; X-coordinate of upper left corner of ROI.</li>
-<li><strong>w</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Width of ROI.</li>
-<li><strong>xbin</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; X-Binning, i.e. number of columns that are combined into one larger column (1 to w).</li>
-<li><strong>y0</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Y-coordinate of upper left corner of ROI.</li>
-<li><strong>h</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Height of ROI.</li>
-<li><strong>ybin</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Y-Binning, i.e. number of rows that are combined into one larger row (1 to h).</li>
+<li><strong>x0</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; X-coordinate of upper left corner of ROI.</li>
+<li><strong>w</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Width of ROI.</li>
+<li><strong>xbin</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; X-Binning, i.e. number of columns that are combined into one larger column (1 to w).</li>
+<li><strong>y0</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Y-coordinate of upper left corner of ROI.</li>
+<li><strong>h</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Height of ROI.</li>
+<li><strong>ybin</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Y-Binning, i.e. number of rows that are combined into one larger row (1 to h).</li>
 </ul>
 </td>
 </tr>
@@ -197,7 +196,7 @@ acquisition in order to keep things clear and simple.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>camID</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number / index of camera to connect to (optional). It is an integer index into a list of valid camera IDs that has been retrieved by <a class="reference internal" href="#picam.picam.getAvailableCameras" title="picam.picam.getAvailableCameras"><code class="xref py py-func docutils literal"><span class="pre">getAvailableCameras()</span></code></a>. If camID is None, this functions connects to the first available camera (default).</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>camID</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number / index of camera to connect to (optional). It is an integer index into a list of valid camera IDs that has been retrieved by <a class="reference internal" href="#picam.picam.getAvailableCameras" title="picam.picam.getAvailableCameras"><code class="xref py py-func docutils literal"><span class="pre">getAvailableCameras()</span></code></a>. If camID is None, this functions connects to the first available camera (default).</td>
 </tr>
 </tbody>
 </table>
@@ -226,8 +225,8 @@ It reads all available data at once into a numpy buffer and reformats data to a 
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>address</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#long" title="(in Python v2.7)"><em>long</em></a>) &#8211; Memory address where the readout buffer is stored.</li>
-<li><strong>size</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of readouts available in the readout buffer.</li>
+<li><strong>address</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#long" title="(in Python v2.7)"><em>long</em></a>) &#8211; Memory address where the readout buffer is stored.</li>
+<li><strong>size</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of readouts available in the readout buffer.</li>
 </ul>
 </td>
 </tr>
@@ -264,7 +263,7 @@ It reads all available data at once into a numpy buffer and reformats data to a 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of the parameter exactly as stated in the PICam SDK manual.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of the parameter exactly as stated in the PICam SDK manual.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Value of this parameter with data type corresponding to the type of parameter.</td>
 </tr>
@@ -280,7 +279,7 @@ It reads all available data at once into a numpy buffer and reformats data to a 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pathToLib</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Path to the dynamic link library (optional). If empty, the library is loaded using the path given by the environment variabel <em>PicamRoot</em>, which is normally created by the PICam SDK installer.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pathToLib</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Path to the dynamic link library (optional). If empty, the library is loaded using the path given by the environment variabel <em>PicamRoot</em>, which is normally created by the PICam SDK installer.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Prints the library version to stdout.</td>
 </tr>
@@ -303,8 +302,8 @@ It reads all available data at once into a numpy buffer and reformats data to a 
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>N</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of frames to collect (&gt;= 1, default=1). This number is essentially limited by the available memory.</li>
-<li><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Maximum wait time between frames in milliseconds (default=100). This parameter is important when using external triggering.</li>
+<li><strong>N</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of frames to collect (&gt;= 1, default=1). This number is essentially limited by the available memory.</li>
+<li><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Maximum wait time between frames in milliseconds (default=100). This parameter is important when using external triggering.</li>
 </ul>
 </td>
 </tr>
@@ -334,7 +333,7 @@ It reads all available data at once into a numpy buffer and reformats data to a 
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of the parameter exactly as stated in the PICam SDK manual.</li>
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Name of the parameter exactly as stated in the PICam SDK manual.</li>
 <li><strong>value</strong> (<em>mixed</em>) &#8211; New parameter value. If the parameter value cannot be changed, a warning is printed to stdout.</li>
 </ul>
 </td>
@@ -352,12 +351,12 @@ It reads all available data at once into a numpy buffer and reformats data to a 
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x0</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; X-coordinate of upper left corner of ROI.</li>
-<li><strong>w</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Width of ROI.</li>
-<li><strong>xbin</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; X-Binning, i.e. number of columns that are combined into one larger column (1 to w).</li>
-<li><strong>y0</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Y-coordinate of upper left corner of ROI.</li>
-<li><strong>h</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Height of ROI.</li>
-<li><strong>ybin</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Y-Binning, i.e. number of rows that are combined into one larger row (1 to h).</li>
+<li><strong>x0</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; X-coordinate of upper left corner of ROI.</li>
+<li><strong>w</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Width of ROI.</li>
+<li><strong>xbin</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; X-Binning, i.e. number of columns that are combined into one larger column (1 to w).</li>
+<li><strong>y0</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Y-coordinate of upper left corner of ROI.</li>
+<li><strong>h</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Height of ROI.</li>
+<li><strong>ybin</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Y-Binning, i.e. number of rows that are combined into one larger row (1 to h).</li>
 </ul>
 </td>
 </tr>
@@ -373,7 +372,7 @@ It reads all available data at once into a numpy buffer and reformats data to a 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>err</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Error code returned by any picam function call.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>err</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Error code returned by any picam function call.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Error code (int) and if an error occurred, prints error message.</td>
 </tr>
@@ -424,12 +423,12 @@ It reads all available data at once into a numpy buffer and reformats data to a 
         <li class="right" >
           <a href="index.html" title="Py-Hardware-Support - A collection of python modules for common laboratory hardware"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Python Hardware Support 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Python Hardware Support 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2010, 2015, Daniel Dietze.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+        &#169; Copyright 2010, 2015, Daniel Dietze.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
     </div>
   </body>
 </html>
