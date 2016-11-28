@@ -197,13 +197,18 @@ class uc480:
 
 
     # connect to camera with given cameraID; if cameraID = 0, connect to first available camera
-    def connect(self, cameraID=0):
+    def connect(self, ID=0, useDevID=False):
         """Connect to the camera with the given cameraID. If cameraID is 0, connect to the first available camera. When connected, sensor information is read out, image memory is reserved and some default parameters are submitted.
 
-        :param int cameraID: Number of camera to connect to. Set this to 0 to connect to the first available camera.
+        ..versionchanged:: *11-28-2016*
+
+            - Added `useDevID` to enable camera selection via cameraID or deviceID.
+
+        :param int ID: ID of the camera to connect to. Set this to 0 to connect to the first available camera (default).
+        :param bool useDevID: Set to True if camera should be identified by deviceID instead. By default (False), cameraID is used.
         """
         # connect to camera
-        self._camID = HCAM()
+        self._camID = HCAM(cameraID) if not useDevID else HCAM(cameraID | IS_USE_DEVICE_ID)
         self.call("is_InitCamera", ptr(self._camID), None)
 
         # get sensor info
