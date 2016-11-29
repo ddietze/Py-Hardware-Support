@@ -208,7 +208,7 @@ class uc480:
         :param bool useDevID: Set to True if camera should be identified by deviceID instead. By default (False), cameraID is used.
         """
         # connect to camera
-        self._camID = HCAM(cameraID) if not useDevID else HCAM(cameraID | IS_USE_DEVICE_ID)
+        self._camID = HCAM(ID) if not useDevID else HCAM(ID | IS_USE_DEVICE_ID)
         self.call("is_InitCamera", ptr(self._camID), None)
 
         # get sensor info
